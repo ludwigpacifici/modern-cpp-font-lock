@@ -33,6 +33,32 @@
 
 ;;; Code:
 
+(setq modern-cpp-keywords '("if" "override"))
+
+(setq modern-cpp-keywords-regexp (regexp-opt modern-cpp-keywords 'words))
+
+(setq modern-cpp-font-lock-keywords
+      `(
+        (,modern-cpp-keywords-regexp . font-lock-keyword-face)
+        ))
+
+;;;###autoload
+(define-minor-mode modern-cpp-font-lock-mode
+  "Provides font-locking as a Minor Mode for Modern C++"
+
+  (font-lock-add-keywords nil modern-cpp-font-lock-keywords)
+
+  ;(setq font-lock-defaults '((modern-cpp-font-lock-keywords)))
+
+  (if (fboundp 'font-lock-flush)
+      (font-lock-flush)
+    (when font-lock-mode
+      (with-no-warnings (font-lock-fontify-buffer)))))
+
+(setq modern-cpp-keywords nil)
+(setq modern-cpp-keywords-regexp)
+
+(provide 'modern-cpp-font-lock)
 
 ;; Local Variables:
 ;; coding: utf-8
