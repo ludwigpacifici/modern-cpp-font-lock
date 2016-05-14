@@ -37,19 +37,22 @@
   "Provides font-locking as a Minor Mode for Modern C++"
   :group 'faces)
 
+;; http://en.cppreference.com/w/cpp/keyword
 (setq modern-cpp-keywords '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "bool" "break" "case" "catch" "char" "char16_t" "char32_t" "class" "compl" "concept" "const" "const_cast" "constexpr" "continue" "decltype" "default" "delete" "do" "double" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "false" "final" "float" "for" "friend" "goto" "if" "import" "inline" "int" "long" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "nullptr" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "short" "signed" "sizeof" "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "true" "try" "typedef" "typeid" "typename" "union" "unsigned" "using" "virtual" "void" "volatile" "wchar_t" "while" "xor" "xor_eq"))
 
-;;(setq modern-cpp-types '("char8_t" "char32_t" "char16_t" "auto" "__LINE__"))
+;; http://en.cppreference.com/w/cpp/keyword
+(setq modern-cpp-preprocessors '("_Pragma" "#define" "#defined" "#elif" "#else" "#endif" "#error" "#if" "#ifdef" "#ifndef" "#include" "#line" "#pragma" "#undef"))
 
 (setq modern-cpp-keywords-regexp (regexp-opt modern-cpp-keywords 'words))
-;(setq modern-cpp-types-regexp (regexp-opt modern-cpp-types 'words))
+(setq modern-cpp-preprocessors-regexp (mapconcat 'regexp-quote modern-cpp-preprocessors "\\|"))
+
 
 (setq modern-cpp-font-lock-keywords
       `(
-        ;; note: order below matters, because once colored, that part
-        ;; won't change.  in general, longer words first
+        ;; Note: order above matters, because once colored, that part
+        ;; won't change. In general, longer words first
+        (,modern-cpp-preprocessors-regexp . font-lock-preprocessor-face)
         (,modern-cpp-keywords-regexp . font-lock-keyword-face)
-        ;(,modern-cpp-types-regexp . font-lock-type-face)
         ))
 
 (defun modern-cpp-font-lock-add-keywords (&optional mode)
