@@ -73,6 +73,8 @@
 ;;;###autoload
 (define-minor-mode modern-cpp-font-lock-mode
   "Provides font-locking as a Minor Mode for Modern C++"
+  :init-value nil
+  :lighter " mc++"
   :group 'modern-cpp-font-lock
   (if modern-cpp-font-lock-mode
       (modern-cpp-font-lock-add-keywords)

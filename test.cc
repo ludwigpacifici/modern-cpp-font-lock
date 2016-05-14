@@ -24,3 +24,9 @@ sizeof...(1)
 i = 1;
 i = NULL;
 i = INFINI;
+
+auto y = [&r = x, x = x + 1, *this]()->int
+    {
+        r += 2;
+        return x + 2;
+    }(); // updates ::x to 6 and initializes y to 7.
