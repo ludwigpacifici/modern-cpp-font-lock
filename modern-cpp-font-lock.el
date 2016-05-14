@@ -45,14 +45,29 @@
 
 ;; http://en.cppreference.com/w/cpp/keyword
 ;; http://en.cppreference.com/w/cpp/preprocessor
-(setq modern-c++-preprocessors (sort '("define" "defined" "elif" "else" "endif" "error" "if" "ifdef" "ifndef" "include" "line" "pragma STDC CX_LIMITED_RANGE" "pragma STDC FENV_ACCESS" "pragma STDC FP_CONTRACT" "pragma once" "pragma pack" "pragma" "undef" "_Pragma" "__DATE__" "__FILE__" "__LINE__" "__STDCPP_STRICT_POINTER_SAFETY__" "__STDCPP_THREADS__" "__STDC_HOSTED__" "__STDC_ISO_10646__" "__STDC_MB_MIGHT_NEQ_WC__" "__STDC_VERSION__" "__STDC__" "__TIME__" "__VA_ARGS__" "__cplusplus" "__has_include") 'string-length>))
+;; Preprocessor starting with '#'
+(setq modern-c++-hash-preprocessors (sort '("define" "defined" "elif" "else" "endif" "error" "if" "ifdef" "ifndef" "include" "line" "pragma STDC CX_LIMITED_RANGE" "pragma STDC FENV_ACCESS" "pragma STDC FP_CONTRACT" "pragma once" "pragma pack" "pragma" "undef") 'string-length>))
+
+;; Preprocessor starting with '_'
+(setq modern-c++-_preprocessors "Pragma")
+
+;; Preprocessor surounded with '__'
+(setq modern-c++-__preprocessors__ (sort '("DATE" "FILE" "LINE" "STDCPP_STRICT_POINTER_SAFETY" "STDCPP_THREADS" "STDC_HOSTED" "STDC_ISO_10646" "STDC_MB_MIGHT_NEQ_WC" "STDC_VERSION" "STDC" "TIME" "VA_AR_GS") 'string-length>))
+
+;; Preprocessor starting with '__'
+(setq modern-c++-__preprocessors (sort '("cplusplus" "has_include") 'string-length>))
 
 ;; http://en.cppreference.com/w/cpp/keyword
 (setq modern-c++-keywords (sort '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "bool" "break" "case" "catch" "char" "char16_t" "char32_t" "class" "compl" "concept" "const" "const_cast" "constexpr" "continue" "decltype" "default" "delete" "do" "double" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "false" "final" "float" "for" "friend" "goto" "if" "import" "inline" "int" "long" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "nullptr" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "short" "signed" "sizeof" "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "true" "try" "typedef" "typeid" "typename" "union" "unsigned" "using" "virtual" "void" "volatile" "wchar_t" "while" "xor" "xor_eq") 'string-length>))
 
 (setq modern-c++-types-regexp (regexp-opt modern-c++-types 'words))
 
-(setq modern-c++-preprocessors-regexp (concat "#" (regexp-opt modern-c++-preprocessors 'words)))
+(setq modern-c++-preprocessors-regexp
+      (concat "#" (regexp-opt modern-c++-hash-preprocessors 'words)
+              "\\|_" modern-c++-_preprocessors
+              "\\|__" (regexp-opt modern-c++-__preprocessors 'words)
+              "\\|__" (regexp-opt modern-c++-__preprocessors__ 'words) "__"
+              ))
 
 (setq modern-c++-keywords-regexp (regexp-opt modern-c++-keywords 'words))
 
@@ -108,7 +123,10 @@
 (setq modern-c++-preprocessors-regexp nil)
 (setq modern-c++-types-regexp nil)
 (setq modern-c++-keywords nil)
-(setq modern-c++-preprocessors nil)
+(setq modern-c++-__preprocessors nil)
+(setq modern-c++-__preprocessors__ nil)
+(setq modern-c++-_preprocessors nil)
+(setq modern-c++-hash-preprocessors nil)
 (setq modern-c++-types nil)
 
 (provide 'modern-cpp-font-lock)

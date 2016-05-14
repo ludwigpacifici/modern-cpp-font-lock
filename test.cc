@@ -1,5 +1,8 @@
 #pragma once
 #define LOG(message) logError(__LINE__, message)
+#pragma STDC FP_CONTRACT
+_Pragma(yep)
+#undef __cplusplus
 
 constexpr double pi = 3.14;
 
