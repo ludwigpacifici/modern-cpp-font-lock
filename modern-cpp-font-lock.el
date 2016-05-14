@@ -33,52 +33,53 @@
 
 ;;; Code:
 
-(defgroup modern-cpp-font-lock nil
+(defgroup modern-c++-font-lock nil
   "Provides font-locking as a Minor Mode for Modern C++"
   :group 'faces)
 
 (defun string-length< (a b) (< (length a) (length b)))
 (defun string-length> (a b) (not (string-length< a b)))
 
-(setq modern-cpp-types (sort '("bool" "char" "char16_t" "char32_t" "double" "float" "int" "long" "short" "signed" "unsigned" "void" "wchar_t") 'string-length>))
+;; http://en.cppreference.com/w/cpp/language/types
+(setq modern-c++-types (sort '("bool" "char" "char16_t" "char32_t" "double" "float" "int" "long" "short" "signed" "unsigned" "void" "wchar_t") 'string-length>))
 
 ;; http://en.cppreference.com/w/cpp/keyword
 ;; http://en.cppreference.com/w/cpp/preprocessor
-(setq modern-cpp-preprocessors (sort '("#define" "#defined" "#elif" "#else" "#endif" "#error" "#if" "#ifdef" "#ifndef" "#include" "#line" "#pragma STDC CX_LIMITED_RANGE" "#pragma STDC FENV_ACCESS" "#pragma STDC FP_CONTRACT" "#pragma once" "#pragma pack" "#pragma" "#undef" "_Pragma" "__DATE__" "__FILE__" "__LINE__" "__STDCPP_STRICT_POINTER_SAFETY__" "__STDCPP_THREADS__" "__STDC_HOSTED__" "__STDC_ISO_10646__" "__STDC_MB_MIGHT_NEQ_WC__" "__STDC_VERSION__" "__STDC__" "__TIME__" "__VA_ARGS__" "__cplusplus" "__has_include") 'string-length>))
+(setq modern-c++-preprocessors (sort '("#define" "#defined" "#elif" "#else" "#endif" "#error" "#if" "#ifdef" "#ifndef" "#include" "#line" "#pragma STDC CX_LIMITED_RANGE" "#pragma STDC FENV_ACCESS" "#pragma STDC FP_CONTRACT" "#pragma once" "#pragma pack" "#pragma" "#undef" "_Pragma" "__DATE__" "__FILE__" "__LINE__" "__STDCPP_STRICT_POINTER_SAFETY__" "__STDCPP_THREADS__" "__STDC_HOSTED__" "__STDC_ISO_10646__" "__STDC_MB_MIGHT_NEQ_WC__" "__STDC_VERSION__" "__STDC__" "__TIME__" "__VA_ARGS__" "__cplusplus" "__has_include") 'string-length>))
 
 ;; http://en.cppreference.com/w/cpp/keyword
-(setq modern-cpp-keywords (sort '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "bool" "break" "case" "catch" "char" "char16_t" "char32_t" "class" "compl" "concept" "const" "const_cast" "constexpr" "continue" "decltype" "default" "delete" "do" "double" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "false" "final" "float" "for" "friend" "goto" "if" "import" "inline" "int" "long" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "nullptr" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "short" "signed" "sizeof" "sizeof..." "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "true" "try" "typedef" "typeid" "typename" "union" "unsigned" "using" "virtual" "void" "volatile" "wchar_t" "while" "xor" "xor_eq") 'string-length>))
+(setq modern-c++-keywords (sort '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "bool" "break" "case" "catch" "char" "char16_t" "char32_t" "class" "compl" "concept" "const" "const_cast" "constexpr" "continue" "decltype" "default" "delete" "do" "double" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "false" "final" "float" "for" "friend" "goto" "if" "import" "inline" "int" "long" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "nullptr" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "short" "signed" "sizeof" "sizeof..." "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "true" "try" "typedef" "typeid" "typename" "union" "unsigned" "using" "virtual" "void" "volatile" "wchar_t" "while" "xor" "xor_eq") 'string-length>))
 
-(setq modern-cpp-types-regexp (regexp-opt modern-cpp-types 'words))
-(setq modern-cpp-preprocessors-regexp (mapconcat 'regexp-quote modern-cpp-preprocessors "\\|"))
-(setq modern-cpp-keywords-regexp (mapconcat 'regexp-quote modern-cpp-keywords "\\|"))
+(setq modern-c++-types-regexp (regexp-opt modern-c++-types 'words))
+(setq modern-c++-preprocessors-regexp (mapconcat 'regexp-quote modern-c++-preprocessors "\\|"))
+(setq modern-c++-keywords-regexp (mapconcat 'regexp-quote modern-c++-keywords "\\|"))
 
-(setq modern-cpp-font-lock-keywords
+(setq modern-c++-font-lock-keywords
       `(
         ;; Note: order above matters, because once colored, that part
         ;; won't change. In general, longer words first
-        (,modern-cpp-types-regexp . font-lock-type-face)
-        (,modern-cpp-preprocessors-regexp . font-lock-preprocessor-face)
-        (,modern-cpp-keywords-regexp . font-lock-keyword-face)
+        (,modern-c++-types-regexp . font-lock-type-face)
+        (,modern-c++-preprocessors-regexp . font-lock-preprocessor-face)
+        (,modern-c++-keywords-regexp . font-lock-keyword-face)
         ))
 
-(defun modern-cpp-font-lock-add-keywords (&optional mode)
+(defun modern-c++-font-lock-add-keywords (&optional mode)
   "Install keywords into major MODE, or into current buffer if nil."
-  (font-lock-add-keywords mode modern-cpp-font-lock-keywords nil))
+  (font-lock-add-keywords mode modern-c++-font-lock-keywords nil))
 
-(defun modern-cpp-font-lock-remove-keywords (&optional mode)
+(defun modern-c++-font-lock-remove-keywords (&optional mode)
   "Remove keywords from major MODE, or from current buffer if nil."
-  (font-lock-remove-keywords mode modern-cpp-font-lock-keywords))
+  (font-lock-remove-keywords mode modern-c++-font-lock-keywords))
 
 ;;;###autoload
-(define-minor-mode modern-cpp-font-lock-mode
+(define-minor-mode modern-c++-font-lock-mode
   "Provides font-locking as a Minor Mode for Modern C++"
   :init-value nil
   :lighter " mc++"
-  :group 'modern-cpp-font-lock
-  (if modern-cpp-font-lock-mode
-      (modern-cpp-font-lock-add-keywords)
-    (modern-cpp-font-lock-remove-keywords))
+  :group 'modern-c++-font-lock
+  (if modern-c++-font-lock-mode
+      (modern-c++-font-lock-add-keywords)
+    (modern-c++-font-lock-remove-keywords))
   ;; As of Emacs 24.4, `font-lock-fontify-buffer' is not legal to
   ;; call, instead `font-lock-flush' should be used.
   (if (fboundp 'font-lock-flush)
@@ -88,27 +89,27 @@
         (font-lock-fontify-buffer)))))
 
 ;;;###autoload
-(defcustom modern-cpp-font-lock-modes '(c++-mode)
+(defcustom modern-c++-font-lock-modes '(c++-mode)
   "List of major modes where Modern C++ Font Lock Global mode should be enabled."
-  :group 'modern-cpp-font-lock
+  :group 'modern-c++-font-lock
   :type '(repeat symbol))
 
 ;;;###autoload
-(define-global-minor-mode modern-cpp-font-lock-global-mode modern-cpp-font-lock-mode
+(define-global-minor-mode modern-c++-font-lock-global-mode modern-c++-font-lock-mode
   (lambda ()
-    (when (apply 'derived-mode-p modern-cpp-font-lock-modes)
-      (modern-cpp-font-lock-mode 1)))
-  :group 'modern-cpp-font-lock)
+    (when (apply 'derived-mode-p modern-c++-font-lock-modes)
+      (modern-c++-font-lock-mode 1)))
+  :group 'modern-c++-font-lock)
 
 ;; Clear memory. no longer needed
-(setq modern-cpp-keywords-regexp nil)
-(setq modern-cpp-preprocessors-regexp nil)
-(setq modern-cpp-types-regexp nil)
-(setq modern-cpp-keywords nil)
-(setq modern-cpp-preprocessors nil)
-(setq modern-cpp-types nil)
+(setq modern-c++-keywords-regexp nil)
+(setq modern-c++-preprocessors-regexp nil)
+(setq modern-c++-types-regexp nil)
+(setq modern-c++-keywords nil)
+(setq modern-c++-preprocessors nil)
+(setq modern-c++-types nil)
 
-(provide 'modern-cpp-font-lock)
+(provide 'modern-c++-font-lock)
 
 ;; coding: utf-8
 
