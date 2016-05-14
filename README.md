@@ -2,7 +2,7 @@
 
 # Modern C++ font-lock for Emacs #
 
-Syntax coloring support for "[Modern C++][modern-cpp]" - until C++17 and TS (Technical Specification). It is recommanded to use it in addition with the `c++-mode` major-mode.
+Syntax coloring support for "[Modern C++][modern-cpp]" - until C++17 and TS (Technical Specification). It is recommended to use it in addition with the `c++-mode` major-mode.
 
 ## Preview ##
 
@@ -31,10 +31,15 @@ For the current buffer, the minor-mode can be turned on/off via the command:
 
 Soon.
 
+## Mode line ##
+
+When `modern-c++-font-lock-mode` is activated, `mc++fl` is displayed.
+
 Happy coding! :skull:
 
-Lud
+[Lud][lud]
 
+[lud]: http://lud.cc
 [modern-cpp]: https://herbsutter.com/elements-of-modern-c-style/
 [load-path]: https://www.gnu.org/software/emacs/manual/html_node/emacs/Lisp-Libraries.html
 [badge-license]: https://img.shields.io/badge/license-GPL_3-green.svg
