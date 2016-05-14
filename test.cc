@@ -1,32 +1,27 @@
-struct alignas(8) S {};
-int main() {
-    bool a;
-    wchar_t b;
-    char16_t c;
-    achar32_t d;
-    std::cout << alignof(char);
+#pragma once
+#define LOG(message) logError(__LINE__, message)
+
+constexpr double pi = 3.14;
+
+thread_local int neat = 1;
+
+[[deprecated]] int *f() noexcept {
+  synchronized { printf("transaction"); }
+  return nullptr;
+};
+
+alignas(128) char cacheline[128];
+
+template <typename... Args>
+void print_size(Args... args)
+{
+  cout << sizeof...(args) << endl;
 }
 
-#define
-#if
-_Pragma
-#elif
+decltype(int) other_integer_variable = 5;
 
-#define FUNCTION(name, a) int fun_##name() { return a;}
+template <class T> concept bool Integral = std::is_integral<T>::value;
 
-#pragma once 1
-#pragma pack
-#pragma STDC CX_LIMITED_RANGE
-
-sizeof(1)
-sizeof...(1)
-
-i = 1;
-i = NULL;
-i = INFINI;
-
-auto y = [&r = x, x = x + 1, *this]()->int
-    {
-        r += 2;
-        return x + 2;
-    }(); // updates ::x to 6 and initializes y to 7.
+struct A final : Base {
+  virtual void foo() final;
+};
