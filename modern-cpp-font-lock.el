@@ -33,35 +33,71 @@
 
 ;;; Code:
 
-(setq modern-cpp-keywords '("if" "override"))
+(defgroup modern-cpp-font-lock nil
+  "Provides font-locking as a Minor Mode for Modern C++"
+  :group 'faces)
+
+(setq modern-cpp-keywords '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "bool" "break" "case" "catch" "char" "char16_t" "char32_t" "class" "compl" "concept" "const" "const_cast" "constexpr" "continue" "decltype" "default" "delete" "do" "double" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "false" "final" "float" "for" "friend" "goto" "if" "import" "inline" "int" "long" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "nullptr" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "short" "signed" "sizeof" "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "true" "try" "typedef" "typeid" "typename" "union" "unsigned" "using" "virtual" "void" "volatile" "wchar_t" "while" "xor" "xor_eq"))
+
+;;(setq modern-cpp-types '("char8_t" "char32_t" "char16_t" "auto" "__LINE__"))
 
 (setq modern-cpp-keywords-regexp (regexp-opt modern-cpp-keywords 'words))
+;(setq modern-cpp-types-regexp (regexp-opt modern-cpp-types 'words))
 
 (setq modern-cpp-font-lock-keywords
       `(
+        ;; note: order below matters, because once colored, that part
+        ;; won't change.  in general, longer words first
         (,modern-cpp-keywords-regexp . font-lock-keyword-face)
+        ;(,modern-cpp-types-regexp . font-lock-type-face)
         ))
+
+(defun modern-cpp-font-lock-add-keywords (&optional mode)
+  "Install keywords into major MODE, or into current buffer if nil."
+  (font-lock-add-keywords mode modern-cpp-font-lock-keywords nil))
+
+(defun modern-cpp-font-lock-remove-keywords (&optional mode)
+  "Remove keywords from major MODE, or from current buffer if nil."
+  (font-lock-remove-keywords mode modern-cpp-font-lock-keywords))
 
 ;;;###autoload
 (define-minor-mode modern-cpp-font-lock-mode
   "Provides font-locking as a Minor Mode for Modern C++"
-
-  (font-lock-add-keywords nil modern-cpp-font-lock-keywords)
-
-  ;(setq font-lock-defaults '((modern-cpp-font-lock-keywords)))
-
+  :group 'modern-cpp-font-lock
+  (if modern-cpp-font-lock-mode
+      (modern-cpp-font-lock-add-keywords)
+    (modern-cpp-font-lock-remove-keywords))
+  ;; As of Emacs 24.4, `font-lock-fontify-buffer' is not legal to
+  ;; call, instead `font-lock-flush' should be used.
   (if (fboundp 'font-lock-flush)
       (font-lock-flush)
     (when font-lock-mode
-      (with-no-warnings (font-lock-fontify-buffer)))))
+      (with-no-warnings
+        (font-lock-fontify-buffer)))))
+
+;;;###autoload
+(defcustom modern-cpp-font-lock-modes '(c++-mode)
+  "List of major modes where Modern C++ Font Lock Global mode should be enabled."
+  :group 'modern-cpp-font-lock
+  :type '(repeat symbol))
+
+;;;###autoload
+(define-global-minor-mode modern-cpp-font-lock-global-mode modern-cpp-font-lock-mode
+  (lambda ()
+    (when (apply 'derived-mode-p modern-cpp-font-lock-modes)
+      (modern-cpp-font-lock-mode 1)))
+  :group 'modern-cpp-font-lock)
+
+;; Clear memory. no longer needed
 
 (setq modern-cpp-keywords nil)
-(setq modern-cpp-keywords-regexp)
+(setq modern-cpp-types nil)
+
+(setq modern-cpp-keywords-regexp nil)
+(setq modern-cpp-types-regexp nil)
 
 (provide 'modern-cpp-font-lock)
 
-;; Local Variables:
 ;; coding: utf-8
-;; End:
 
 ;;; modern-cpp-font-lock.el ends here
