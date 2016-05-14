@@ -128,7 +128,7 @@
       (modern-c++-font-lock-mode 1)))
   :group 'modern-c++-font-lock)
 
-;; Clear memory. no longer needed
+;; Clear memory. No longer needed
 (setq modern-c++-keywords-regexp nil)
 (setq modern-c++-preprocessors-regexp nil)
 (setq modern-c++-types-regexp nil)

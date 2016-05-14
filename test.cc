@@ -8,7 +8,7 @@ constexpr double pi = 3.14;
 
 thread_local int neat = 1;
 
-[[deprecated(asdasd)]] int *f() noexcept {
+[[deprecated("asdasd")]] int *f() noexcept {
   synchronized { printf("transaction"); }
   return nullptr;
 };
