@@ -60,6 +60,12 @@
 ;; http://en.cppreference.com/w/cpp/keyword
 (setq modern-c++-keywords (sort '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "bool" "break" "case" "catch" "char" "char16_t" "char32_t" "class" "compl" "concept" "const" "const_cast" "constexpr" "continue" "decltype" "default" "delete" "do" "double" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "false" "final" "float" "for" "friend" "goto" "if" "import" "inline" "int" "long" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "nullptr" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "short" "signed" "sizeof" "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "true" "try" "typedef" "typeid" "typename" "union" "unsigned" "using" "virtual" "void" "volatile" "wchar_t" "while" "xor" "xor_eq") 'string-length>))
 
+;; http://en.cppreference.com/w/cpp/language/attributes
+(setq modern-c++-attributes (sort '("carries_dependency" "deprecated" "fallthrough" "maybe_unused" "nodiscard" "noreturn" "optimize_for_synchronized") 'string-length>))
+
+;; Standard attributes with a reason
+(setq modern-c++-attribute-reasons "deprecated")
+
 (setq modern-c++-types-regexp (regexp-opt modern-c++-types 'words))
 
 (setq modern-c++-preprocessors-regexp
@@ -71,6 +77,11 @@
 
 (setq modern-c++-keywords-regexp (regexp-opt modern-c++-keywords 'words))
 
+(setq modern-c++-attributes-regexp
+      (concat "\\[\\[" (regexp-opt modern-c++-attributes 'words)
+              "\\|" modern-c++-attribute-reasons "\\(*\\)"
+              "\\]\\]"))
+
 (setq modern-c++-font-lock-keywords
       `(
         ;; Note: order above matters, because once colored, that part
@@ -78,6 +89,7 @@
         (,modern-c++-types-regexp . font-lock-type-face)
         (,modern-c++-preprocessors-regexp . font-lock-preprocessor-face)
         (,modern-c++-keywords-regexp . font-lock-keyword-face)
+        (,modern-c++-attributes-regexp . font-lock-constant-face)
         ))
 
 (defun modern-c++-font-lock-add-keywords (&optional mode)
@@ -122,6 +134,9 @@
 (setq modern-c++-keywords-regexp nil)
 (setq modern-c++-preprocessors-regexp nil)
 (setq modern-c++-types-regexp nil)
+(setq modern-c++-attributes-regexp nil)
+(setq modern-c++-attribute-reasons nil)
+(setq modern-c++-attributes nil)
 (setq modern-c++-keywords nil)
 (setq modern-c++-__preprocessors nil)
 (setq modern-c++-__preprocessors__ nil)

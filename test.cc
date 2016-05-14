@@ -8,7 +8,7 @@ constexpr double pi = 3.14;
 
 thread_local int neat = 1;
 
-[[deprecated]] int *f() noexcept {
+[[deprecated(asdasd)]] int *f() noexcept {
   synchronized { printf("transaction"); }
   return nullptr;
 };
@@ -26,5 +26,6 @@ decltype(int) other_integer_variable = 5;
 template <class T> concept bool Integral = std::is_integral<T>::value;
 
 struct A final : Base {
+  [[maybe_unused]]
   virtual void foo() final;
 };
