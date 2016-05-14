@@ -37,21 +37,27 @@
   "Provides font-locking as a Minor Mode for Modern C++"
   :group 'faces)
 
-;; http://en.cppreference.com/w/cpp/keyword
-(setq modern-cpp-keywords '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "bool" "break" "case" "catch" "char" "char16_t" "char32_t" "class" "compl" "concept" "const" "const_cast" "constexpr" "continue" "decltype" "default" "delete" "do" "double" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "false" "final" "float" "for" "friend" "goto" "if" "import" "inline" "int" "long" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "nullptr" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "short" "signed" "sizeof" "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "true" "try" "typedef" "typeid" "typename" "union" "unsigned" "using" "virtual" "void" "volatile" "wchar_t" "while" "xor" "xor_eq"))
+(defun string-length< (a b) (< (length a) (length b)))
+(defun string-length> (a b) (not (string-length< a b)))
+
+(setq modern-cpp-types (sort '("bool" "char" "char16_t" "char32_t" "double" "float" "int" "long" "short" "signed" "unsigned" "void" "wchar_t") 'string-length>))
 
 ;; http://en.cppreference.com/w/cpp/keyword
 ;; http://en.cppreference.com/w/cpp/preprocessor
-(setq modern-cpp-preprocessors '("#define" "#defined" "#elif" "#else" "#endif" "#error" "#if" "#ifdef" "#ifndef" "#include" "#line" "#pragma STDC CX_LIMITED_RANGE" "#pragma STDC FENV_ACCESS" "#pragma STDC FP_CONTRACT" "#pragma once" "#pragma pack" "#pragma" "#undef" "_Pragma" "__DATE__" "__FILE__" "__LINE__" "__STDCPP_STRICT_POINTER_SAFETY__" "__STDCPP_THREADS__" "__STDC_HOSTED__" "__STDC_ISO_10646__" "__STDC_MB_MIGHT_NEQ_WC__" "__STDC_VERSION__" "__STDC__" "__TIME__" "__VA_ARGS__" "__cplusplus" "__has_include"))
+(setq modern-cpp-preprocessors (sort '("#define" "#defined" "#elif" "#else" "#endif" "#error" "#if" "#ifdef" "#ifndef" "#include" "#line" "#pragma STDC CX_LIMITED_RANGE" "#pragma STDC FENV_ACCESS" "#pragma STDC FP_CONTRACT" "#pragma once" "#pragma pack" "#pragma" "#undef" "_Pragma" "__DATE__" "__FILE__" "__LINE__" "__STDCPP_STRICT_POINTER_SAFETY__" "__STDCPP_THREADS__" "__STDC_HOSTED__" "__STDC_ISO_10646__" "__STDC_MB_MIGHT_NEQ_WC__" "__STDC_VERSION__" "__STDC__" "__TIME__" "__VA_ARGS__" "__cplusplus" "__has_include") 'string-length>))
 
-(setq modern-cpp-keywords-regexp (regexp-opt modern-cpp-keywords 'words))
+;; http://en.cppreference.com/w/cpp/keyword
+(setq modern-cpp-keywords (sort '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "bool" "break" "case" "catch" "char" "char16_t" "char32_t" "class" "compl" "concept" "const" "const_cast" "constexpr" "continue" "decltype" "default" "delete" "do" "double" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "false" "final" "float" "for" "friend" "goto" "if" "import" "inline" "int" "long" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "nullptr" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "short" "signed" "sizeof" "sizeof..." "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "true" "try" "typedef" "typeid" "typename" "union" "unsigned" "using" "virtual" "void" "volatile" "wchar_t" "while" "xor" "xor_eq") 'string-length>))
+
+(setq modern-cpp-types-regexp (regexp-opt modern-cpp-types 'words))
 (setq modern-cpp-preprocessors-regexp (mapconcat 'regexp-quote modern-cpp-preprocessors "\\|"))
-
+(setq modern-cpp-keywords-regexp (mapconcat 'regexp-quote modern-cpp-keywords "\\|"))
 
 (setq modern-cpp-font-lock-keywords
       `(
         ;; Note: order above matters, because once colored, that part
         ;; won't change. In general, longer words first
+        (,modern-cpp-types-regexp . font-lock-type-face)
         (,modern-cpp-preprocessors-regexp . font-lock-preprocessor-face)
         (,modern-cpp-keywords-regexp . font-lock-keyword-face)
         ))
@@ -93,12 +99,12 @@
   :group 'modern-cpp-font-lock)
 
 ;; Clear memory. no longer needed
-
-(setq modern-cpp-keywords nil)
-(setq modern-cpp-types nil)
-
 (setq modern-cpp-keywords-regexp nil)
+(setq modern-cpp-preprocessors-regexp nil)
 (setq modern-cpp-types-regexp nil)
+(setq modern-cpp-keywords nil)
+(setq modern-cpp-preprocessors nil)
+(setq modern-cpp-types nil)
 
 (provide 'modern-cpp-font-lock)
 
