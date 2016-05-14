@@ -72,15 +72,13 @@
       (concat "#" (regexp-opt modern-c++-hash-preprocessors 'words)
               "\\|_" modern-c++-_preprocessors
               "\\|__" (regexp-opt modern-c++-__preprocessors 'words)
-              "\\|__" (regexp-opt modern-c++-__preprocessors__ 'words) "__"
-              ))
+              "\\|__" (regexp-opt modern-c++-__preprocessors__ 'words) "__"))
 
 (setq modern-c++-keywords-regexp (regexp-opt modern-c++-keywords 'words))
 
 (setq modern-c++-attributes-regexp
-      (concat "\\[\\[" (regexp-opt modern-c++-attributes 'words)
-              "\\|" modern-c++-attribute-reasons "\\(*\\)"
-              "\\]\\]"))
+      (concat "\\[\\[" (regexp-opt modern-c++-attributes 'words) "\\]\\]"
+              "\\|\\[\\[" modern-c++-attribute-reasons "\\(.*\\)\\]\\]"))
 
 (setq modern-c++-font-lock-keywords
       `(
