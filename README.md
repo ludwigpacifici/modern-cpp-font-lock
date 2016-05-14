@@ -2,20 +2,36 @@
 
 # Modern C++ font-lock for Emacs #
 
-Syntax coloring support for "[Modern C++][modern-cpp]" - including C++17 and TS (Technical Specification). It is recommanded to use it on top of the `c++-mode` major-mode.
+Syntax coloring support for "[Modern C++][modern-cpp]" - including C++17 and TS (Technical Specification). It is recommanded to use it in addition with the `c++-mode` major-mode.
+
+## Preview ##
+
+Soon.
 
 ## Installation ##
 
 ### Manual ###
+
+#### Global setup ####
 
 Download `modern-cpp-font-lock.el` into a directory of your [load-path][load-path]. Place the following lines in a suitable init file:
 
     (require 'modern-cpp-font-lock)
     (modern-c++-font-lock-global-mode t)
 
+`modern-c++-font-lock-mode` will be activated for buffers using the `c++-mode` major-mode.
+
+#### local ####
+
 For the current buffer, the minor-mode can be turned on/off via the command:
 
 <kbd>M-x modern-c++-font-lock-mode [RET]</kbd>
+
+### Melpa ###
+
+Soon.
+
+Happy coding! :skull:
 
 Lud
 
