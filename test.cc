@@ -21,7 +21,7 @@ void print_size(Args... args)
   cout << sizeof...(args) << endl;
 }
 
-decltype(int) other_integer_variable = 5;
+decltype(int) other_integer_variable = 5++;
 
 template <class T> concept bool Integral = std::is_integral<T>::value;
 
