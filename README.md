@@ -31,6 +31,37 @@ For the current buffer, the minor-mode can be turned on/off via the command:
 
 Soon.
 
+## Configuration ##
+
+You can modify the following lists to recognize more words or set it to `nil` to partially disable font locking:
+
+ * `modern-c++-types` - list of C++ types
+ * `modern-c++-hash-preprocessors` - list of C++ preprocessor words starting with `#`
+ * `modern-c++-_preprocessors` - list of C++ preprocessor words starting with `_`
+ * `modern-c++-__preprocessors__` - list of C++ preprocessor words surounded with `__`
+ * `modern-c++-__preprocessors` - list of C++ preprocessor words starting with `__`
+ * `modern-c++-keywords` - list of C++ keywords
+ * `modern-c++-attributes` - list of C++ attributes
+ * `modern-c++-attribute-reasons` - list of C++ attributes containing a reason
+ * `modern-c++-operators-assignment` - list of C++ assignment operators
+ * `modern-c++-operators-increment-decrement` - list of C++ increment/decrement operators
+ * `modern-c++-operators-arithmetic` - list of C++ arithmetic operators
+ * `modern-c++-operators-logical` - list of C++ logical operators
+ * `modern-c++-operators-comparison` - list of C++ comparison operators
+ * `modern-c++-operators-member-access` - list of C++ member access operators
+ * `modern-c++-operators-other` - list of C++ other operators
+ * `modern-c++-operators-all` - list of C++ operators
+
+### Example: Disable font-lock for all operators ###
+
+With `c++-mode` and `modern-c++-font-lock-mode` enabled, you will see by default:
+
+![See img/all-operator-on-sample.png for screenshot](./img/all-operator-on-sample.png)
+
+Add `(setq modern-c++-operators-all nil)` init file to disable font locking for all C++ operators. Now, `=` is no more highlighted:
+
+![See img/all-operator-off-sample.png for screenshot](./img/all-operator-off-sample.png)
+
 ## Mode line ##
 
 When `modern-c++-font-lock-mode` is activated, `mc++fl` is displayed.
