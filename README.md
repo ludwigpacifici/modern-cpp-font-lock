@@ -58,7 +58,7 @@ With `c++-mode` and `modern-c++-font-lock-mode` enabled, you will see by default
 
 ![See img/all-operator-on-sample.png for screenshot](./img/all-operator-on-sample.png)
 
-Add `(setq modern-c++-operators-all nil)` init file to disable font locking for all C++ operators. Now, `=` is no more highlighted:
+Add `(setq modern-c++-operators-all nil)` in the init file to disable font locking for all C++ operators. Now, `=` is no more highlighted:
 
 ![See img/all-operator-off-sample.png for screenshot](./img/all-operator-off-sample.png)
 
