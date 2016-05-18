@@ -114,59 +114,10 @@
                  '(repeat string))
   :group 'modern-c++-font-lock)
 
-(defcustom modern-c++-operators-assignment
-  '("%=" "&=" "*=" "+=" "-=" "/=" "<<=" "=" ">>=" "^=" "|=")
-  "List of C++ assignment operators. See doc: http://en.cppreference.com/w/cpp/language/operator_assignment"
-  :type '(choice (const :tag "Disabled" nil)
-                 '(repeat string))
-  :group 'modern-c++-font-lock)
-
-(defcustom modern-c++-operators-increment-decrement
-  '("++" "--")
-  "List of C++ increment/decrement operators. See doc: http://en.cppreference.com/w/cpp/language/operator_incdec"
-  :type '(choice (const :tag "Disabled" nil)
-                 '(repeat string))
-  :group 'modern-c++-font-lock)
-
-(defcustom modern-c++-operators-arithmetic
-  '("+" "-" "+" "-" "*" "/" "%" "~" "&" "|" "^" "<<" ">>")
-  "List of C++ arithmetic operators. See doc: http://en.cppreference.com/w/cpp/language/operator_arithmetic"
-  :type '(choice (const :tag "Disabled" nil)
-                 '(repeat string))
-  :group 'modern-c++-font-lock)
-
-(defcustom modern-c++-operators-logical
-  '("!" "&&" "||")
-  "List of C++ logical operators. See doc: http://en.cppreference.com/w/cpp/language/operator_logical"
-  :type '(choice (const :tag "Disabled" nil)
-                 '(repeat string))
-  :group 'modern-c++-font-lock)
-
-(defcustom modern-c++-operators-comparison
-  '("==" "!=" "<" ">" "<=" ">=")
-  "List of C++ comparison operators. See doc: http://en.cppreference.com/w/cpp/language/operator_comparison"
-  :type '(choice (const :tag "Disabled" nil)
-                 '(repeat string))
-  :group 'modern-c++-font-lock)
-
-(defcustom modern-c++-operators-member-access
-  '("*" "&" "->" "." "->*" ".*")
-  "List of C++ member access operators. See doc: http://en.cppreference.com/w/cpp/language/operator_member_access"
-  :type '(choice (const :tag "Disabled" nil)
-                 '(repeat string))
-  :group 'modern-c++-font-lock)
-
-(defcustom modern-c++-operators-other
-  '("..." "," "?" ":")
-  "List of C++ other operators. See doc: http://en.cppreference.com/w/cpp/language/operator_other"
-  :type '(choice (const :tag "Disabled" nil)
-                 '(repeat string))
-  :group 'modern-c++-font-lock)
-
-(defcustom modern-c++-operators-all
-  (sort (append modern-c++-operators-assignment modern-c++-operators-increment-decrement modern-c++-operators-arithmetic modern-c++-operators-logical modern-c++-operators-comparison modern-c++-operators-member-access modern-c++-operators-other)
+(defcustom modern-c++-operators
+  (sort '("...")
         'modern-c++-string-lenght>)
-  "List of C++ operators. See doc: http://en.cppreference.com/w/cpp/language/operator_precedence"
+  "List of C++ assignment operators. See doc: http://en.cppreference.com/w/cpp/language/operators"
   :type '(choice (const :tag "Disabled" nil)
                  '(repeat string))
   :group 'modern-c++-font-lock)
@@ -183,7 +134,7 @@
              (concat "\\[\\[" (regexp-opt modern-c++-attributes 'words) "\\]\\]"
                      "\\|\\[\\[" modern-c++-attribute-reasons "\\(.*\\)\\]\\]"))
             (operators-regexp
-             (concat "\\(" (mapconcat 'regexp-quote modern-c++-operators-all "\\|") "\\)")))
+             (concat "\\(" (mapconcat 'regexp-quote modern-c++-operators "\\|") "\\)")))
         `(
           ;; Note: order below matters, because once colored, that part
           ;; won't change. In general, longer words first
