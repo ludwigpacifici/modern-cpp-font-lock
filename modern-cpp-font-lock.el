@@ -169,33 +169,28 @@
                  '(repeat string))
   :group 'modern-c++-font-lock)
 
-(setq modern-c++-types-regexp (regexp-opt modern-c++-types 'words))
-
-(setq modern-c++-preprocessors-regexp
-      (concat "#" (regexp-opt modern-c++-hash-preprocessors 'words)
-              "\\|_" modern-c++-_preprocessors
-              "\\|__" (regexp-opt modern-c++-__preprocessors 'words)
-              "\\|__" (regexp-opt modern-c++-__preprocessors__ 'words) "__"))
-
-(setq modern-c++-keywords-regexp (regexp-opt modern-c++-keywords 'words))
-
-(setq modern-c++-attributes-regexp
-      (concat "\\[\\[" (regexp-opt modern-c++-attributes 'words) "\\]\\]"
-              "\\|\\[\\[" modern-c++-attribute-reasons "\\(.*\\)\\]\\]"))
-
-(setq modern-c++-operators-regexp
-      (concat "\\(" (mapconcat 'regexp-quote modern-c++-operators-all "\\|") "\\)"))
-
 (setq modern-c++-font-lock-keywords
-      `(
-        ;; Note: order below matters, because once colored, that part
-        ;; won't change. In general, longer words first
-        (,modern-c++-types-regexp . font-lock-type-face)
-        (,modern-c++-preprocessors-regexp . font-lock-preprocessor-face)
-        (,modern-c++-keywords-regexp . font-lock-keyword-face)
-        (,modern-c++-attributes-regexp . font-lock-constant-face)
-        (,modern-c++-operators-regexp . font-lock-function-name-face)
-        ))
+      (let ((types-regexp (regexp-opt modern-c++-types 'words))
+            (preprocessors-regexp
+             (concat "#" (regexp-opt modern-c++-hash-preprocessors 'words)
+                     "\\|_" modern-c++-_preprocessors
+                     "\\|__" (regexp-opt modern-c++-__preprocessors 'words)
+                     "\\|__" (regexp-opt modern-c++-__preprocessors__ 'words) "__"))
+            (keywords-regexp (regexp-opt modern-c++-keywords 'words))
+            (attributes-regexp
+             (concat "\\[\\[" (regexp-opt modern-c++-attributes 'words) "\\]\\]"
+                     "\\|\\[\\[" modern-c++-attribute-reasons "\\(.*\\)\\]\\]"))
+            (operators-regexp
+             (concat "\\(" (mapconcat 'regexp-quote modern-c++-operators-all "\\|") "\\)")))
+        `(
+          ;; Note: order below matters, because once colored, that part
+          ;; won't change. In general, longer words first
+          (,types-regexp . font-lock-type-face)
+          (,preprocessors-regexp . font-lock-preprocessor-face)
+          (,keywords-regexp . font-lock-keyword-face)
+          (,attributes-regexp . font-lock-constant-face)
+          (,operators-regexp . font-lock-function-name-face)
+          )))
 
 (defun modern-c++-font-lock-add-keywords (&optional mode)
   "Install keywords into major MODE, or into current buffer if nil."
@@ -234,13 +229,6 @@
     (when (apply 'derived-mode-p modern-c++-font-lock-modes)
       (modern-c++-font-lock-mode 1)))
   :group 'modern-c++-font-lock)
-
-;; Clear memory. No longer needed
-(setq modern-c++-operators-regexp nil)
-(setq modern-c++-attributes-regexp nil)
-(setq modern-c++-keywords-regexp nil)
-(setq modern-c++-preprocessors-regexp nil)
-(setq modern-c++-types-regexp nil)
 
 (provide 'modern-cpp-font-lock)
 
