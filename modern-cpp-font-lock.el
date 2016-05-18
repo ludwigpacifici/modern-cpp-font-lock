@@ -48,8 +48,8 @@
   "Provides font-locking as a Minor Mode for Modern C++"
   :group 'faces)
 
-(defun string-length< (a b) (< (length a) (length b)))
-(defun string-length> (a b) (not (string-length< a b)))
+(defun modern-c++-string-lenght< (a b) (< (length a) (length b)))
+(defun modern-c++-string-lenght> (a b) (not (modern-c++-string-lenght< a b)))
 
 (defcustom modern-c++-types
   '("bool" "char" "char16_t" "char32_t" "double" "float" "int" "long" "short" "signed" "unsigned" "void" "wchar_t")
@@ -60,7 +60,7 @@
 
 (defcustom modern-c++-hash-preprocessors
   (sort '("define" "defined" "elif" "else" "endif" "error" "if" "ifdef" "ifndef" "include" "line" "pragma STDC CX_LIMITED_RANGE" "pragma STDC FENV_ACCESS" "pragma STDC FP_CONTRACT" "pragma once" "pragma pack" "pragma" "undef")
-        'string-length>)
+        'modern-c++-string-lenght>)
   "List of C++ preprocessor words starting with '#'. See doc: http://en.cppreference.com/w/cpp/keyword and http://en.cppreference.com/w/cpp/preprocessor"
   :type '(choice (const :tag "Disabled" nil)
                  '(repeat string))
@@ -75,7 +75,7 @@
 
 (defcustom modern-c++-__preprocessors__
   (sort '("DATE" "FILE" "LINE" "STDCPP_STRICT_POINTER_SAFETY" "STDCPP_THREADS" "STDC_HOSTED" "STDC_ISO_10646" "STDC_MB_MIGHT_NEQ_WC" "STDC_VERSION" "STDC" "TIME" "VA_AR_GS")
-        'string-length>)
+        'modern-c++-string-lenght>)
   "List of C++ preprocessor words surounded with '__'. See doc: http://en.cppreference.com/w/cpp/keyword and http://en.cppreference.com/w/cpp/preprocessor"
   :type '(choice (const :tag "Disabled" nil)
                  '(repeat string))
@@ -83,7 +83,7 @@
 
 (defcustom modern-c++-__preprocessors
   (sort '("cplusplus" "has_include")
-        'string-length>)
+        'modern-c++-string-lenght>)
   "List of C++ preprocessor words starting with '__'. See doc: http://en.cppreference.com/w/cpp/keyword and http://en.cppreference.com/w/cpp/preprocessor"
   :type '(choice (const :tag "Disabled" nil)
                  '(repeat string))
@@ -91,7 +91,7 @@
 
 (defcustom modern-c++-keywords
   (sort '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "bool" "break" "case" "catch" "char" "char16_t" "char32_t" "class" "compl" "concept" "const" "const_cast" "constexpr" "continue" "decltype" "default" "delete" "do" "double" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "false" "final" "float" "for" "friend" "goto" "if" "import" "inline" "int" "long" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "nullptr" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "short" "signed" "sizeof" "sizeof..." "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "true" "try" "typedef" "typeid" "typename" "union" "unsigned" "using" "virtual" "void" "volatile" "wchar_t" "while" "xor" "xor_eq")
-        'string-length>)
+        'modern-c++-string-lenght>)
   "List of C++ keywords. See doc: http://en.cppreference.com/w/cpp/keyword"
   :type '(choice (const :tag "Disabled" nil)
                  '(repeat string))
@@ -99,7 +99,7 @@
 
 (defcustom modern-c++-attributes
   (sort '("carries_dependency" "deprecated" "fallthrough" "maybe_unused" "nodiscard" "noreturn" "optimize_for_synchronized")
-        'string-length>)
+        'modern-c++-string-lenght>)
   "List of C++ attributes. See doc: http://en.cppreference.com/w/cpp/language/attributes"
   :type '(choice (const :tag "Disabled" nil)
                  '(repeat string))
@@ -163,7 +163,7 @@
 
 (defcustom modern-c++-operators-all
   (sort (append modern-c++-operators-assignment modern-c++-operators-increment-decrement modern-c++-operators-arithmetic modern-c++-operators-logical modern-c++-operators-comparison modern-c++-operators-member-access modern-c++-operators-other)
-        'string-length>)
+        'modern-c++-string-lenght>)
   "List of C++ operators. See doc: http://en.cppreference.com/w/cpp/language/operator_precedence"
   :type '(choice (const :tag "Disabled" nil)
                  '(repeat string))
