@@ -107,13 +107,6 @@
                  '(repeat string))
   :group 'modern-c++-font-lock)
 
-(defcustom modern-c++-attribute-reasons
-  "deprecated"
-  "List of C++ attributes containing a reason. See doc: http://en.cppreference.com/w/cpp/language/attributes"
-  :type '(choice (const :tag "Disabled" nil)
-                 '(repeat string))
-  :group 'modern-c++-font-lock)
-
 (defcustom modern-c++-operators
   (sort '("...")
         'modern-c++-string-lenght>)
@@ -135,8 +128,7 @@ http://en.cppreference.com/w/cpp/language/operators"
                      "\\|__" (regexp-opt modern-c++-__preprocessors__ 'words) "__"))
             (keywords-regexp (regexp-opt modern-c++-keywords 'words))
             (attributes-regexp
-             (concat "\\[\\[" (regexp-opt modern-c++-attributes 'words) "\\]\\]"
-                     "\\|\\[\\[" modern-c++-attribute-reasons "\\(.*\\)\\]\\]"))
+             (concat "\\[\\[\\(" (regexp-opt modern-c++-attributes 'words) "\\).*\\]\\]"))
             (operators-regexp (regexp-opt modern-c++-operators)))
         `(
           ;; Note: order below matters, because once colored, that part
@@ -144,7 +136,7 @@ http://en.cppreference.com/w/cpp/language/operators"
           (,types-regexp . font-lock-type-face)
           (,preprocessors-regexp . font-lock-preprocessor-face)
           (,keywords-regexp . font-lock-keyword-face)
-          (,attributes-regexp . font-lock-constant-face)
+          (,attributes-regexp 1 font-lock-constant-face)
           (,operators-regexp . font-lock-function-name-face)
           )))
 

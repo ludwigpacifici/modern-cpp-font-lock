@@ -47,7 +47,6 @@ You can modify the following lists to recognize more words or set it to `nil` to
  * `modern-c++-__preprocessors` - list of C++ preprocessor words starting with `__`
  * `modern-c++-keywords` - list of C++ keywords
  * `modern-c++-attributes` - list of C++ attributes
- * `modern-c++-attribute-reasons` - list of C++ attributes containing a reason
  * `modern-c++-operators` - list of C++ operators
 
 ### Example: Enable font-lock for more operators ###
