@@ -1,4 +1,5 @@
 [![License GPL 3][badge-license]](http://www.gnu.org/licenses/gpl-3.0.txt)
+[![MELPA](http://melpa.org/packages/modern-cpp-font-lock-badge.svg)](http://melpa.org/#/modern-cpp-font-lock)
 
 # Modern C++ font-lock for Emacs #
 
@@ -72,8 +73,7 @@ Do not hesitate to ask questions or share suggestions - the package is fairly ne
 
 Happy coding! :skull:
 
-[Lud][lud]
+[Lud](http://lud.cc)
 
-[lud]: http://lud.cc
 [load-path]: https://www.gnu.org/software/emacs/manual/html_node/emacs/Lisp-Libraries.html
 [badge-license]: https://img.shields.io/badge/license-GPL_3-green.svg
