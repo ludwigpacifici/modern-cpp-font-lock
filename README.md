@@ -1,4 +1,4 @@
-[![License GPL 3][badge-license]](http://www.gnu.org/licenses/gpl-3.0.txt)
+[![License GPL 3](https://img.shields.io/badge/license-GPL_3-green.svg)](http://www.gnu.org/licenses/gpl-3.0.txt)
 [![MELPA](http://melpa.org/packages/modern-cpp-font-lock-badge.svg)](http://melpa.org/#/modern-cpp-font-lock)
 
 # Modern C++ font-lock for Emacs #
@@ -13,8 +13,7 @@ Soon.
 
 ### Melpa ###
 
-`modern-cpp-font-lock` is available on the the major (not stable) `package.el` community
-maintained repos [MELPA](http://melpa.org).
+`modern-cpp-font-lock` is available on the major `package.el` community maintained repo - [MELPA](http://melpa.org).
 
 You can install it with the following command:
 
@@ -94,4 +93,4 @@ Happy coding! :skull:
 [Lud](http://lud.cc)
 
 [load-path]: https://www.gnu.org/software/emacs/manual/html_node/emacs/Lisp-Libraries.html
-[badge-license]: https://img.shields.io/badge/license-GPL_3-green.svg
+[badge-license]:
