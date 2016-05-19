@@ -3,6 +3,8 @@
 #pragma STDC FP_CONTRACT
 _Pragma(yep)
 #undef __cplusplus
+#include <iostream>
+#include "foo/bar.h"
 
 constexpr double pi = 3.14;
 

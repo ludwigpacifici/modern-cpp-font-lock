@@ -117,7 +117,11 @@
 (defcustom modern-c++-operators
   (sort '("...")
         'modern-c++-string-lenght>)
-  "List of C++ assignment operators. See doc: http://en.cppreference.com/w/cpp/language/operators"
+  "List of C++ assignment operators. Left Intentionally almost
+empty. The user will choose what should be font-locked. By
+default I want to avoid a 'christmas tree' C++ code. For more
+information, see doc:
+http://en.cppreference.com/w/cpp/language/operators"
   :type '(choice (const :tag "Disabled" nil)
                  '(repeat string))
   :group 'modern-c++-font-lock)
@@ -133,8 +137,7 @@
             (attributes-regexp
              (concat "\\[\\[" (regexp-opt modern-c++-attributes 'words) "\\]\\]"
                      "\\|\\[\\[" modern-c++-attribute-reasons "\\(.*\\)\\]\\]"))
-            (operators-regexp
-             (concat "\\(" (mapconcat 'regexp-quote modern-c++-operators "\\|") "\\)")))
+            (operators-regexp (regexp-opt modern-c++-operators)))
         `(
           ;; Note: order below matters, because once colored, that part
           ;; won't change. In general, longer words first
