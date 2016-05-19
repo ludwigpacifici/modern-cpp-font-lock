@@ -48,7 +48,7 @@ You can modify the following lists to recognize more words or set it to `nil` to
 
 ### Example: Enable font-lock for operators ###
 
-By default, operators are no font locked (to avoid the 'christmas tree' effect). However, you could argue they can be overloaded and it could make sense to highlight all/some of them. It is a perfect example to show you how to customize this minor-mode:
+By default, operators are no font locked (to avoid the _christmas tree_ effect). However, you could argue they can be overloaded and it could make sense to highlight all/some of them. It is a perfect example to show you how to customize this minor-mode:
 
 With `c++-mode` and `modern-c++-font-lock-mode` enabled, you will see by default:
 
@@ -61,6 +61,8 @@ Add `(add-to-list 'modern-c++-operators "=")` in your init file to enable extra 
 ## Mode line ##
 
 When `modern-c++-font-lock-mode` is activated, `mc++fl` is displayed.
+
+![See img/mode-line.png for screenshot](./img/mode-line.png)
 
 ## Feedback ##
 
