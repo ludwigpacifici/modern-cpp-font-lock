@@ -35,7 +35,7 @@ Download `modern-cpp-font-lock.el` into a directory of your [load-path][load-pat
 
 For the current buffer, the minor-mode can be turned on/off via the command:
 
-<kbd>M-x modern-c++-font-lock-mode [RET]</kbd>
+<kbd>M-x</kbd> modern-c++-font-lock-mode <kbd>[RET]</kbd>
 
 ## Configuration ##
 
@@ -51,7 +51,7 @@ You can modify the following lists to recognize more words or set it to `nil` to
  * `modern-c++-attribute-reasons` - list of C++ attributes containing a reason
  * `modern-c++-operators` - list of C++ operators
 
-### Example: Enable font-lock for operators ###
+### Example: Enable font-lock for more operators ###
 
 By default, operators are no font locked (to avoid the _christmas tree_ effect). However, you could argue they can be overloaded and it could make sense to highlight all/some of them. It is a perfect example to show you how to customize this minor-mode:
 
@@ -62,6 +62,18 @@ With `c++-mode` and `modern-c++-font-lock-mode` enabled, you will see by default
 Add `(add-to-list 'modern-c++-operators "=")` in your init file to enable extra font locking for operators. Now, `=` is highlighted:
 
 ![See img/all-operator-on-sample.png for screenshot](./img/all-operator-on-sample.png)
+
+### Example: Disable font-lock for attributes  ###
+
+You do not like some part of the font-locking? Fair enough. Let's disable the syntax highlighting for C++ attributes.
+
+With `c++-mode` and `modern-c++-font-lock-mode` enabled, you will see by default:
+
+![See img/attributes-on.png for screenshot](./img/attributes-on.png)
+
+Add `(setq modern-c++-attributes nil)` in your init file to disable font locking for C++ attributes. Now, `[[maybe_unused]]` is no more highlighted:
+
+![See img/attributes-off.png for screenshot](./img/attributes-off.png)
 
 ## Mode line ##
 
