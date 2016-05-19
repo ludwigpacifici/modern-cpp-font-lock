@@ -44,24 +44,19 @@ You can modify the following lists to recognize more words or set it to `nil` to
  * `modern-c++-keywords` - list of C++ keywords
  * `modern-c++-attributes` - list of C++ attributes
  * `modern-c++-attribute-reasons` - list of C++ attributes containing a reason
- * `modern-c++-operators-assignment` - list of C++ assignment operators
- * `modern-c++-operators-increment-decrement` - list of C++ increment/decrement operators
- * `modern-c++-operators-arithmetic` - list of C++ arithmetic operators
- * `modern-c++-operators-logical` - list of C++ logical operators
- * `modern-c++-operators-comparison` - list of C++ comparison operators
- * `modern-c++-operators-member-access` - list of C++ member access operators
- * `modern-c++-operators-other` - list of C++ other operators
- * `modern-c++-operators-all` - list of C++ operators
+ * `modern-c++-operators` - list of C++ operators
 
-### Example: Disable font-lock for all operators ###
+### Example: Enable font-lock for operators ###
+
+By default, operators are no font locked (to avoid the 'christmas tree' effect). However, you could argue they can be overloaded and it could make sense to highlight all/some of them. It is a perfect example to show you how to customize this minor-mode:
 
 With `c++-mode` and `modern-c++-font-lock-mode` enabled, you will see by default:
 
-![See img/all-operator-on-sample.png for screenshot](./img/all-operator-on-sample.png)
-
-Add `(setq modern-c++-operators-all nil)` in the init file to disable font locking for all C++ operators. Now, `=` is no more highlighted:
-
 ![See img/all-operator-off-sample.png for screenshot](./img/all-operator-off-sample.png)
+
+Add `(add-to-list 'modern-c++-operators "=")` in your init file to enable extra font locking for operators. Now, `=` is highlighted:
+
+![See img/all-operator-on-sample.png for screenshot](./img/all-operator-on-sample.png)
 
 ## Mode line ##
 
