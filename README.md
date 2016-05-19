@@ -93,4 +93,3 @@ Happy coding! :skull:
 [Lud](http://lud.cc)
 
 [load-path]: https://www.gnu.org/software/emacs/manual/html_node/emacs/Lisp-Libraries.html
-[badge-license]:
