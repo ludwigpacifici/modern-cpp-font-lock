@@ -35,7 +35,7 @@ Download `modern-cpp-font-lock.el` into a directory of your [load-path][load-pat
 
 For the current buffer, the minor-mode can be turned on/off via the command:
 
-<kbd>M-x</kbd> modern-c++-font-lock-mode <kbd>[RET]</kbd>
+<kbd>M-x</kbd> `modern-c++-font-lock-mode` <kbd>[RET]</kbd>
 
 ## Configuration ##
 
@@ -74,6 +74,10 @@ With `c++-mode` and `modern-c++-font-lock-mode` enabled, you will see by default
 Add `(setq modern-c++-attributes nil)` in your init file to disable font locking for C++ attributes. Now, `[[maybe_unused]]` is no more highlighted:
 
 ![See img/attributes-off.png for screenshot](./img/attributes-off.png)
+
+### More customization! ###
+
+With the two previous examples, you can entirely re-define the font locking. Behind the scene of each variable, it's simply a list of strings. You can set it to `nil` and then add your own keywords.
 
 ## Mode line ##
 
