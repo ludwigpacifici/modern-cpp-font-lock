@@ -14,9 +14,9 @@
 
 ;; Syntax coloring support for "Modern C++" - until C++17 and TS (Technical Specification). It is recommended to use it in addition with the `c++-mode` major-mode.
 
-;; * Melpa: M-x package-install cidermodern-c++-font-lock [RET]
+;; * Melpa: M-x package-install [RET] modern-cpp-font-lock [RET]
 
-;; * Manual:
+;; * Manually:
 ;; Download `modern-cpp-font-lock.el` into a directory of your load-path. Place the following lines in a suitable init file:
 ;;    (require 'modern-cpp-font-lock)
 ;;    (modern-c++-font-lock-global-mode t)
