@@ -66,6 +66,10 @@ Add `(setq modern-c++-operators-all nil)` in the init file to disable font locki
 
 When `modern-c++-font-lock-mode` is activated, `mc++fl` is displayed.
 
+## Feedback ##
+
+Do not hesitate to ask questions or share suggestions - the package is fairly new.
+
 Happy coding! :skull:
 
 [Lud][lud]
