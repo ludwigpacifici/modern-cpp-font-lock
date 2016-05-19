@@ -11,6 +11,15 @@ Soon.
 
 ## Installation ##
 
+### Melpa ###
+
+`modern-cpp-font-lock` is available on the the major (not stable) `package.el` community
+maintained repos [MELPA](http://melpa.org).
+
+You can install it with the following command:
+
+<kbd>M-x</kbd> `package-install` <kbd>[RET]</kbd> `modern-cpp-font-lock` <kbd>[RET]</kbd>
+
 ### Manual ###
 
 #### Global setup ####
@@ -27,10 +36,6 @@ Download `modern-cpp-font-lock.el` into a directory of your [load-path][load-pat
 For the current buffer, the minor-mode can be turned on/off via the command:
 
 <kbd>M-x modern-c++-font-lock-mode [RET]</kbd>
-
-### Melpa ###
-
-Soon.
 
 ## Configuration ##
 
