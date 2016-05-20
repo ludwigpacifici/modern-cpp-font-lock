@@ -19,6 +19,14 @@ You can install it with the following command:
 
 <kbd>M-x</kbd> `package-install` <kbd>[RET]</kbd> `modern-cpp-font-lock` <kbd>[RET]</kbd>
 
+In your init Emacs file add:
+
+    (modern-c++-font-lock-global-mode t)
+    
+or:
+
+    (add-hook 'c++-mode-hook #'modern-c++-font-lock-mode)
+
 ### Manual ###
 
 #### Global setup ####
