@@ -21,11 +21,11 @@ You can install it with the following command:
 
 In your init Emacs file add:
 
-    (modern-c++-font-lock-global-mode t)
-    
+    (add-hook 'c++-mode-hook #'modern-c++-font-lock-mode)
+
 or:
 
-    (add-hook 'c++-mode-hook #'modern-c++-font-lock-mode)
+    (modern-c++-font-lock-global-mode t)
 
 ### Manual ###
 
@@ -48,14 +48,11 @@ For the current buffer, the minor-mode can be turned on/off via the command:
 
 You can modify the following lists to recognize more words or set it to `nil` to partially disable font locking:
 
- * `modern-c++-types` - list of C++ types
- * `modern-c++-hash-preprocessors` - list of C++ preprocessor words starting with `#`
- * `modern-c++-_preprocessors` - list of C++ preprocessor words starting with `_`
- * `modern-c++-__preprocessors__` - list of C++ preprocessor words surounded with `__`
- * `modern-c++-__preprocessors` - list of C++ preprocessor words starting with `__`
- * `modern-c++-keywords` - list of C++ keywords
- * `modern-c++-attributes` - list of C++ attributes
- * `modern-c++-operators` - list of C++ operators
+ * `modern-c++-types` - `bool`, `char`, `double`...
+ * `modern-c++-preprocessors` - `#define`, `__LINE__`, `__cplusplus`...
+ * `modern-c++-keywords` - `if`, `constexpr`, `noexcept`...
+ * `modern-c++-attributes` - `[[deprecated]]`, `[[noreturn]]`, `[[optimize_for_synchronized]]`...
+ * `modern-c++-operators` - `...`
 
 ### Example: Enable font-lock for more operators ###
 

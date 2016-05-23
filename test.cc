@@ -8,6 +8,10 @@ _Pragma(yep)
 
 constexpr double pi = 3.14;
 
+// hello
+
+/* world */
+
 thread_local int neat = 1;
 
 [[deprecated("asdasd")]] int *f() noexcept {

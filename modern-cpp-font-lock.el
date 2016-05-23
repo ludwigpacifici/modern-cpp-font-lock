@@ -64,39 +64,10 @@ http://en.cppreference.com/w/cpp/language/types"
                  '(repeat string))
   :group 'modern-c++-font-lock)
 
-(defcustom modern-c++-hash-preprocessors
-  (sort '("define" "defined" "elif" "else" "endif" "error" "if" "ifdef" "ifndef" "include" "line" "pragma STDC CX_LIMITED_RANGE" "pragma STDC FENV_ACCESS" "pragma STDC FP_CONTRACT" "pragma once" "pragma pack" "pragma" "undef")
+(defcustom modern-c++-preprocessors
+  (sort '("#define" "#defined" "#elif" "#else" "#endif" "#error" "#if" "#ifdef" "#ifndef" "#include" "#line" "#pragma STDC CX_LIMITED_RANGE" "#pragma STDC FENV_ACCESS" "#pragma STDC FP_CONTRACT" "#pragma once" "#pragma pack" "#pragma" "#undef" "_Pragma" "__DATE__" "__FILE__" "__LINE__" "__STDCPP_STRICT_POINTER_SAFETY__" "__STDCPP_THREADS__" "__STDC_HOSTED__" "__STDC_ISO_10646__" "__STDC_MB_MIGHT_NEQ_WC__" "__STDC_VERSION__" "__STDC__" "__TIME__" "__VA_AR_GS__" "__cplusplus" "__has_include")
         'modern-c++-string-lenght>)
-  "List of C++ preprocessor words starting with '#'. See doc:
-http://en.cppreference.com/w/cpp/keyword and
-http://en.cppreference.com/w/cpp/preprocessor"
-  :type '(choice (const :tag "Disabled" nil)
-                 '(repeat string))
-  :group 'modern-c++-font-lock)
-
-(defcustom modern-c++-_preprocessors
-  "Pragma"
-  "List of C++ preprocessor words starting with '_'. See doc:
-http://en.cppreference.com/w/cpp/keyword and
-http://en.cppreference.com/w/cpp/preprocessor"
-  :type '(choice (const :tag "Disabled" nil)
-                 '(repeat string))
-  :group 'modern-c++-font-lock)
-
-(defcustom modern-c++-__preprocessors__
-  (sort '("DATE" "FILE" "LINE" "STDCPP_STRICT_POINTER_SAFETY" "STDCPP_THREADS" "STDC_HOSTED" "STDC_ISO_10646" "STDC_MB_MIGHT_NEQ_WC" "STDC_VERSION" "STDC" "TIME" "VA_AR_GS")
-        'modern-c++-string-lenght>)
-  "List of C++ preprocessor words surounded with '__'. See doc:
-http://en.cppreference.com/w/cpp/keyword and
-http://en.cppreference.com/w/cpp/preprocessor"
-  :type '(choice (const :tag "Disabled" nil)
-                 '(repeat string))
-  :group 'modern-c++-font-lock)
-
-(defcustom modern-c++-__preprocessors
-  (sort '("cplusplus" "has_include")
-        'modern-c++-string-lenght>)
-  "List of C++ preprocessor words starting with '__'. See doc:
+  "List of C++ preprocessor words. See doc:
 http://en.cppreference.com/w/cpp/keyword and
 http://en.cppreference.com/w/cpp/preprocessor"
   :type '(choice (const :tag "Disabled" nil)
@@ -135,11 +106,7 @@ http://en.cppreference.com/w/cpp/language/operators"
 
 (setq modern-c++-font-lock-keywords
       (let ((types-regexp (regexp-opt modern-c++-types 'words))
-            (preprocessors-regexp
-             (concat "#" (regexp-opt modern-c++-hash-preprocessors 'words)
-                     "\\|_" modern-c++-_preprocessors
-                     "\\|__" (regexp-opt modern-c++-__preprocessors 'words)
-                     "\\|__" (regexp-opt modern-c++-__preprocessors__ 'words) "__"))
+            (preprocessors-regexp (regexp-opt modern-c++-preprocessors))
             (keywords-regexp (regexp-opt modern-c++-keywords 'words))
             (attributes-regexp
              (concat "\\[\\[\\(" (regexp-opt modern-c++-attributes 'words) "\\).*\\]\\]"))
