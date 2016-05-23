@@ -10,7 +10,7 @@ constexpr double pi = 3.14;
 
 // hello
 
-/* world */
+/** world */
 
 thread_local int neat = 1;
 
@@ -18,6 +18,8 @@ thread_local int neat = 1;
   synchronized { printf("transaction"); }
   return nullptr;
 };
+
+/// doc
 
 alignas(128) char cacheline[128];
 

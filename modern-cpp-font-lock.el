@@ -64,6 +64,14 @@ http://en.cppreference.com/w/cpp/language/types"
                  '(repeat string))
   :group 'modern-c++-font-lock)
 
+(defcustom modern-c++-literals
+  '("false" "nullptr" "true")
+  "List of C++ literals. See doc:
+http://en.cppreference.com/w/cpp/language/bool_literal"
+  :type '(choice (const :tag "Disabled" nil)
+                 '(repeat string))
+  :group 'modern-c++-font-lock)
+
 (defcustom modern-c++-preprocessors
   (sort '("#define" "#defined" "#elif" "#else" "#endif" "#error" "#if" "#ifdef" "#ifndef" "#include" "#line" "#pragma STDC CX_LIMITED_RANGE" "#pragma STDC FENV_ACCESS" "#pragma STDC FP_CONTRACT" "#pragma once" "#pragma pack" "#pragma" "#undef" "_Pragma" "__DATE__" "__FILE__" "__LINE__" "__STDCPP_STRICT_POINTER_SAFETY__" "__STDCPP_THREADS__" "__STDC_HOSTED__" "__STDC_ISO_10646__" "__STDC_MB_MIGHT_NEQ_WC__" "__STDC_VERSION__" "__STDC__" "__TIME__" "__VA_AR_GS__" "__cplusplus" "__has_include")
         'modern-c++-string-lenght>)
@@ -75,7 +83,7 @@ http://en.cppreference.com/w/cpp/preprocessor"
   :group 'modern-c++-font-lock)
 
 (defcustom modern-c++-keywords
-  (sort '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "break" "case" "catch" "class" "compl" "concept" "const" "const_cast" "constexpr" "continue" "decltype" "default" "delete" "do" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "false" "final" "for" "friend" "goto" "if" "import" "inline" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "nullptr" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "sizeof" "sizeof..." "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "true" "try" "typedef" "typeid" "typename" "union" "using" "virtual" "volatile" "while" "xor" "xor_eq")
+  (sort '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "break" "case" "catch" "class" "compl" "concept" "const" "const_cast" "constexpr" "continue" "decltype" "default" "delete" "do" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "final" "for" "friend" "goto" "if" "import" "inline" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "sizeof" "sizeof..." "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "try" "typedef" "typeid" "typename" "union" "using" "virtual" "volatile" "while" "xor" "xor_eq")
         'modern-c++-string-lenght>)
   "List of C++ keywords. See doc:
 http://en.cppreference.com/w/cpp/keyword"
@@ -108,6 +116,7 @@ http://en.cppreference.com/w/cpp/language/operators"
       (let ((types-regexp (regexp-opt modern-c++-types 'words))
             (preprocessors-regexp (regexp-opt modern-c++-preprocessors))
             (keywords-regexp (regexp-opt modern-c++-keywords 'words))
+            (literal-regexp (regexp-opt modern-c++-literals 'words))
             (attributes-regexp
              (concat "\\[\\[\\(" (regexp-opt modern-c++-attributes 'words) "\\).*\\]\\]"))
             (operators-regexp (regexp-opt modern-c++-operators)))
@@ -117,6 +126,7 @@ http://en.cppreference.com/w/cpp/language/operators"
           (,types-regexp . font-lock-type-face)
           (,preprocessors-regexp . font-lock-preprocessor-face)
           (,keywords-regexp . font-lock-keyword-face)
+          (,literal-regexp . font-lock-constant-face)
           (,attributes-regexp 1 font-lock-constant-face)
           (,operators-regexp . font-lock-function-name-face)
           )))
