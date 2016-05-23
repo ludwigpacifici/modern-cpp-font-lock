@@ -59,7 +59,8 @@
 
 (defcustom modern-c++-types
   '("bool" "char" "char16_t" "char32_t" "double" "float" "int" "long" "short" "signed" "unsigned" "void" "wchar_t")
-  "List of C++ types. See doc: http://en.cppreference.com/w/cpp/language/types"
+  "List of C++ types. See doc:
+http://en.cppreference.com/w/cpp/language/types"
   :type '(choice (const :tag "Disabled" nil)
                  '(repeat string))
   :group 'modern-c++-font-lock)
@@ -67,14 +68,18 @@
 (defcustom modern-c++-hash-preprocessors
   (sort '("define" "defined" "elif" "else" "endif" "error" "if" "ifdef" "ifndef" "include" "line" "pragma STDC CX_LIMITED_RANGE" "pragma STDC FENV_ACCESS" "pragma STDC FP_CONTRACT" "pragma once" "pragma pack" "pragma" "undef")
         'modern-c++-string-lenght>)
-  "List of C++ preprocessor words starting with '#'. See doc: http://en.cppreference.com/w/cpp/keyword and http://en.cppreference.com/w/cpp/preprocessor"
+  "List of C++ preprocessor words starting with '#'. See doc:
+http://en.cppreference.com/w/cpp/keyword and
+http://en.cppreference.com/w/cpp/preprocessor"
   :type '(choice (const :tag "Disabled" nil)
                  '(repeat string))
   :group 'modern-c++-font-lock)
 
 (defcustom modern-c++-_preprocessors
   "Pragma"
-  "List of C++ preprocessor words starting with '_'. See doc: http://en.cppreference.com/w/cpp/keyword and http://en.cppreference.com/w/cpp/preprocessor"
+  "List of C++ preprocessor words starting with '_'. See doc:
+http://en.cppreference.com/w/cpp/keyword and
+http://en.cppreference.com/w/cpp/preprocessor"
   :type '(choice (const :tag "Disabled" nil)
                  '(repeat string))
   :group 'modern-c++-font-lock)
@@ -82,7 +87,9 @@
 (defcustom modern-c++-__preprocessors__
   (sort '("DATE" "FILE" "LINE" "STDCPP_STRICT_POINTER_SAFETY" "STDCPP_THREADS" "STDC_HOSTED" "STDC_ISO_10646" "STDC_MB_MIGHT_NEQ_WC" "STDC_VERSION" "STDC" "TIME" "VA_AR_GS")
         'modern-c++-string-lenght>)
-  "List of C++ preprocessor words surounded with '__'. See doc: http://en.cppreference.com/w/cpp/keyword and http://en.cppreference.com/w/cpp/preprocessor"
+  "List of C++ preprocessor words surounded with '__'. See doc:
+http://en.cppreference.com/w/cpp/keyword and
+http://en.cppreference.com/w/cpp/preprocessor"
   :type '(choice (const :tag "Disabled" nil)
                  '(repeat string))
   :group 'modern-c++-font-lock)
@@ -90,7 +97,9 @@
 (defcustom modern-c++-__preprocessors
   (sort '("cplusplus" "has_include")
         'modern-c++-string-lenght>)
-  "List of C++ preprocessor words starting with '__'. See doc: http://en.cppreference.com/w/cpp/keyword and http://en.cppreference.com/w/cpp/preprocessor"
+  "List of C++ preprocessor words starting with '__'. See doc:
+http://en.cppreference.com/w/cpp/keyword and
+http://en.cppreference.com/w/cpp/preprocessor"
   :type '(choice (const :tag "Disabled" nil)
                  '(repeat string))
   :group 'modern-c++-font-lock)
@@ -98,7 +107,8 @@
 (defcustom modern-c++-keywords
   (sort '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "bool" "break" "case" "catch" "char" "char16_t" "char32_t" "class" "compl" "concept" "const" "const_cast" "constexpr" "continue" "decltype" "default" "delete" "do" "double" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "false" "final" "float" "for" "friend" "goto" "if" "import" "inline" "int" "long" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "nullptr" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "short" "signed" "sizeof" "sizeof..." "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "true" "try" "typedef" "typeid" "typename" "union" "unsigned" "using" "virtual" "void" "volatile" "wchar_t" "while" "xor" "xor_eq")
         'modern-c++-string-lenght>)
-  "List of C++ keywords. See doc: http://en.cppreference.com/w/cpp/keyword"
+  "List of C++ keywords. See doc:
+http://en.cppreference.com/w/cpp/keyword"
   :type '(choice (const :tag "Disabled" nil)
                  '(repeat string))
   :group 'modern-c++-font-lock)
@@ -106,7 +116,8 @@
 (defcustom modern-c++-attributes
   (sort '("carries_dependency" "deprecated" "fallthrough" "maybe_unused" "nodiscard" "noreturn" "optimize_for_synchronized")
         'modern-c++-string-lenght>)
-  "List of C++ attributes. See doc: http://en.cppreference.com/w/cpp/language/attributes"
+  "List of C++ attributes. See doc:
+http://en.cppreference.com/w/cpp/language/attributes"
   :type '(choice (const :tag "Disabled" nil)
                  '(repeat string))
   :group 'modern-c++-font-lock)

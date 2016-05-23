@@ -18,9 +18,10 @@ thread_local int neat = 1;
 alignas(128) char cacheline[128];
 
 template <typename... Args>
-void print_size(Args... args)
+bool print_size(Args... args)
 {
   cout << sizeof...(args) << endl;
+  return true;
 }
 
 decltype(int) other_integer_variable = 5++;
