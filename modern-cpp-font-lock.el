@@ -67,7 +67,9 @@ http://en.cppreference.com/w/cpp/language/types"
 (defcustom modern-c++-literals
   '("false" "nullptr" "true")
   "List of C++ literals. See doc:
-http://en.cppreference.com/w/cpp/language/bool_literal"
+http://en.cppreference.com/w/cpp/language/bool_literal and
+http://en.cppreference.com/w/cpp/language/nullptr and
+http://en.cppreference.com/w/cpp/language/integer_literal"
   :type '(choice (const :tag "Disabled" nil)
                  '(repeat string))
   :group 'modern-c++-font-lock)
@@ -115,7 +117,7 @@ http://en.cppreference.com/w/cpp/language/operators"
 (setq modern-c++-font-lock-keywords
       (let ((types-regexp (regexp-opt modern-c++-types 'words))
             (preprocessors-regexp (regexp-opt modern-c++-preprocessors))
-            (keywords-regexp (regexp-opt modern-c++-keywords 'words))
+            (keywords-regexp (regexp-opt modern-c++-keywords 'symbols))
             (literal-regexp (regexp-opt modern-c++-literals 'words))
             (attributes-regexp
              (concat "\\[\\[\\(" (regexp-opt modern-c++-attributes 'words) "\\).*\\]\\]"))
@@ -123,12 +125,12 @@ http://en.cppreference.com/w/cpp/language/operators"
         `(
           ;; Note: order below matters, because once colored, that part
           ;; won't change. In general, longer words first
-          (,types-regexp . font-lock-type-face)
-          (,preprocessors-regexp . font-lock-preprocessor-face)
-          (,keywords-regexp . font-lock-keyword-face)
-          (,literal-regexp . font-lock-constant-face)
-          (,attributes-regexp 1 font-lock-constant-face)
-          (,operators-regexp . font-lock-function-name-face)
+          (,types-regexp (0 font-lock-type-face))
+          (,preprocessors-regexp (0 font-lock-preprocessor-face))
+          (,literal-regexp (0 font-lock-constant-face))
+          (,attributes-regexp (1 font-lock-constant-face))
+          (,operators-regexp (0 font-lock-function-name-face))
+          (,keywords-regexp (0 font-lock-keyword-face))
           )))
 
 (defun modern-c++-font-lock-add-keywords (&optional mode)
