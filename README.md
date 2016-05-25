@@ -91,9 +91,9 @@ When `modern-c++-font-lock-mode` is activated, `mc++fl` is displayed.
 
 ## Feedback ##
 
-Do not hesitate to ask questions or share suggestions - the package is fairly new.
+Do not hesitate to ask questions or share suggestions.
 
-Happy coding! :skull:
+Happy coding!
 
 [Lud](http://lud.cc)
 
