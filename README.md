@@ -7,7 +7,13 @@ Syntax coloring support for "Modern C++" - until C++17 and TS (Technical Specifi
 
 ## Preview ##
 
-Soon.
+Using GNU Emacs 24.5.1 and CC Mode version 5.32.5. `modern-c++-font-lock-mode` is enabled:
+
+![See img/mc++fl-on.png for screenshot](./img/mc++fl-on.png)
+
+`modern-c++-font-lock-mode` is disabled:
+
+![See img/mc++fl-off.png for screenshot](./img/mc++fl-off.png)
 
 ## Installation ##
 
