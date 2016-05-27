@@ -114,7 +114,7 @@ http://en.cppreference.com/w/cpp/language/operators"
                  '(repeat string))
   :group 'modern-c++-font-lock)
 
-(defcustom modern-c++-literal-interger
+(defcustom modern-c++-literal-integer
   t
   "Enable font-lock for integer literal. For more information,
 see documentation:
@@ -129,7 +129,7 @@ http://en.cppreference.com/w/cpp/language/integer_literal"
          (literal-octal-regexp (concat not-hex-digit-regexp "\\(0\\)\\([0-7']+\\)\\(" integer-suffix-regexp "?\\)"))
          (literal-hex-regexp (concat not-hex-digit-regexp "\\(0[xX]\\)\\([0-9a-fA-F']+\\)\\(" integer-suffix-regexp "?\\)"))
          (literal-dec-regexp (concat not-hex-digit-regexp "\\([1-9][0-9']*\\)\\(" integer-suffix-regexp "\\)")))
-    (when modern-c++-literal-interger
+    (when modern-c++-literal-integer
       `(
         ;; Note: order below matters, because once colored, that part
         ;; won't change. In general, longer words first
@@ -166,13 +166,13 @@ http://en.cppreference.com/w/cpp/language/integer_literal"
 (defun modern-c++-font-lock-add-keywords (&optional mode)
   "Install keywords into major MODE, or into current buffer if nil."
   (font-lock-add-keywords mode modern-c++-font-lock-keywords nil)
-  (when modern-c++-literal-interger
+  (when modern-c++-literal-integer
     (font-lock-add-keywords mode modern-c++-font-lock-literal-integer nil)))
 
 (defun modern-c++-font-lock-remove-keywords (&optional mode)
   "Remove keywords from major MODE, or from current buffer if nil."
   (font-lock-remove-keywords mode modern-c++-font-lock-keywords)
-  (when modern-c++-literal-interger
+  (when modern-c++-literal-integer
     (font-lock-remove-keywords mode modern-c++-font-lock-literal-integer)))
 
 ;;;###autoload
