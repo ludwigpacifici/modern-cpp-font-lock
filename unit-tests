@@ -160,6 +160,33 @@ xor_eq
 06
 07
 
+0B101 + 01234567L;
+
+0b10Ul + 0B1 == 123;
+
+0x12A= 0X2A
+
+0b1;
+0b1u;
+0b1ul;
+0b1ull;
+0b1llu;
+0b1U;
+0b1LU;
+0x1
+0x2
+int d = 42;
+int o = 052;
+int x = 0x2a;
+int X = 0X2A;
+int b = 0b101010;
+unsigned long long l1 = 18446744073709550592ull;
+unsigned long long l2 = 18446744073709550592llu;
+unsigned long long l3 = 18446744073709550592uLL;
+unsigned long long l4 = 18'446'744'073'709'550'592LLU;
+1U
+0xDeAdBaBeU == 0XdeadBABEu
+
 // Expect raw display
 
 abool
@@ -444,3 +471,7 @@ optimize_for_synchronized]]
 08
 09
 019
+10b1
+10xa
+01234567889
+0x3Ulll

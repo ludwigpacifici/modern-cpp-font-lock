@@ -61,6 +61,10 @@ You can modify the following lists to recognize more words or set it to `nil` to
  * `modern-c++-preprocessors` - `#define`, `__LINE__`, `__cplusplus`...
  * `modern-c++-types` - `bool`, `char`, `double`...
 
+Set to `t` to enable the following options or otherwise to `nil`:
+
+ * `modern-c++-literal-interger` - `0b101010`, `18446744073709550592LLU`, `0XdeadBABEu`...
+
 ### Example: Enable font-lock for more operators ###
 
 By default, operators are no font locked (to avoid the _christmas tree_ effect). However, you could argue they can be overloaded and it could make sense to highlight all/some of them. It is a perfect example to show you how to customize this minor-mode:
