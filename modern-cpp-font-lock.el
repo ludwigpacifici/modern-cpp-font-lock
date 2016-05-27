@@ -171,7 +171,9 @@ http://en.cppreference.com/w/cpp/language/integer_literal"
 
 (defun modern-c++-font-lock-remove-keywords (&optional mode)
   "Remove keywords from major MODE, or from current buffer if nil."
-  (font-lock-remove-keywords mode modern-c++-font-lock-keywords))
+  (font-lock-remove-keywords mode modern-c++-font-lock-keywords)
+  (when modern-c++-literal-interger
+    (font-lock-remove-keywords mode modern-c++-font-lock-literal-integer)))
 
 ;;;###autoload
 (define-minor-mode modern-c++-font-lock-mode
