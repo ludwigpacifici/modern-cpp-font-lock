@@ -16,11 +16,11 @@
 ;; (Technical Specification). It is recommended to use it in addition
 ;; with the `c++-mode` major-mode.
 
-;; * Melpa: [M-x] package-install [RET] modern-cpp-font-lock [RET]
-;;   In your init Emacs file add:
-;;       (add-hook 'c++-mode-hook #'modern-c++-font-lock-mode)
-;;   or:
-;;       (modern-c++-font-lock-global-mode t)
+;; Melpa: [M-x] package-install [RET] modern-cpp-font-lock [RET]
+;; In your init Emacs file add:
+;;     (add-hook 'c++-mode-hook #'modern-c++-font-lock-mode)
+;; or:
+;;     (modern-c++-font-lock-global-mode t)
 
 ;; For the current buffer, the minor-mode can be turned on/off via the command:
 ;;     [M-x] modern-c++-font-lock-mode [RET]
