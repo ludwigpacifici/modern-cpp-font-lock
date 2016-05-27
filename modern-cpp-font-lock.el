@@ -57,7 +57,8 @@
 (defun modern-c++-string-lenght> (a b) (not (modern-c++-string-lenght< a b)))
 
 (defcustom modern-c++-types
-  '("bool" "char" "char16_t" "char32_t" "double" "float" "int" "long" "short" "signed" "unsigned" "void" "wchar_t")
+  (eval-when-compile (sort '("bool" "char" "char16_t" "char32_t" "double" "float" "int" "long" "short" "signed" "unsigned" "void" "wchar_t")
+                           'modern-c++-string-lenght>))
   "List of C++ types. See doc:
 http://en.cppreference.com/w/cpp/language/types"
   :type '(choice (const :tag "Disabled" nil)
@@ -65,7 +66,8 @@ http://en.cppreference.com/w/cpp/language/types"
   :group 'modern-c++-font-lock)
 
 (defcustom modern-c++-literals
-  '("false" "nullptr" "true")
+  (eval-when-compile (sort '("false" "nullptr" "true")
+                           'modern-c++-string-lenght>))
   "List of C++ literals. See doc:
 http://en.cppreference.com/w/cpp/language/bool_literal and
 http://en.cppreference.com/w/cpp/language/nullptr and
@@ -75,8 +77,8 @@ http://en.cppreference.com/w/cpp/language/integer_literal"
   :group 'modern-c++-font-lock)
 
 (defcustom modern-c++-preprocessors
-  (sort '("#define" "#defined" "#elif" "#else" "#endif" "#error" "#if" "#ifdef" "#ifndef" "#include" "#line" "#pragma STDC CX_LIMITED_RANGE" "#pragma STDC FENV_ACCESS" "#pragma STDC FP_CONTRACT" "#pragma once" "#pragma pack" "#pragma" "#undef" "_Pragma" "__DATE__" "__FILE__" "__LINE__" "__STDCPP_STRICT_POINTER_SAFETY__" "__STDCPP_THREADS__" "__STDC_HOSTED__" "__STDC_ISO_10646__" "__STDC_MB_MIGHT_NEQ_WC__" "__STDC_VERSION__" "__STDC__" "__TIME__" "__VA_AR_GS__" "__cplusplus" "__has_include")
-        'modern-c++-string-lenght>)
+  (eval-when-compile (sort '("#define" "#defined" "#elif" "#else" "#endif" "#error" "#if" "#ifdef" "#ifndef" "#include" "#line" "#pragma STDC CX_LIMITED_RANGE" "#pragma STDC FENV_ACCESS" "#pragma STDC FP_CONTRACT" "#pragma once" "#pragma pack" "#pragma" "#undef" "_Pragma" "__DATE__" "__FILE__" "__LINE__" "__STDCPP_STRICT_POINTER_SAFETY__" "__STDCPP_THREADS__" "__STDC_HOSTED__" "__STDC_ISO_10646__" "__STDC_MB_MIGHT_NEQ_WC__" "__STDC_VERSION__" "__STDC__" "__TIME__" "__VA_AR_GS__" "__cplusplus" "__has_include")
+                           'modern-c++-string-lenght>))
   "List of C++ preprocessor words. See doc:
 http://en.cppreference.com/w/cpp/keyword and
 http://en.cppreference.com/w/cpp/preprocessor"
@@ -85,8 +87,8 @@ http://en.cppreference.com/w/cpp/preprocessor"
   :group 'modern-c++-font-lock)
 
 (defcustom modern-c++-keywords
-  (sort '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "break" "case" "catch" "class" "compl" "concept" "const" "const_cast" "constexpr" "continue" "decltype" "default" "delete" "do" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "final" "for" "friend" "goto" "if" "import" "inline" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "sizeof" "sizeof..." "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "try" "typedef" "typeid" "typename" "union" "using" "virtual" "volatile" "while" "xor" "xor_eq")
-        'modern-c++-string-lenght>)
+  (eval-when-compile (sort '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "break" "case" "catch" "class" "compl" "concept" "const" "const_cast" "constexpr" "continue" "decltype" "default" "delete" "do" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "final" "for" "friend" "goto" "if" "import" "inline" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "sizeof" "sizeof..." "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "try" "typedef" "typeid" "typename" "union" "using" "virtual" "volatile" "while" "xor" "xor_eq")
+                           'modern-c++-string-lenght>))
   "List of C++ keywords. See doc:
 http://en.cppreference.com/w/cpp/keyword"
   :type '(choice (const :tag "Disabled" nil)
@@ -94,8 +96,8 @@ http://en.cppreference.com/w/cpp/keyword"
   :group 'modern-c++-font-lock)
 
 (defcustom modern-c++-attributes
-  (sort '("carries_dependency" "deprecated" "fallthrough" "maybe_unused" "nodiscard" "noreturn" "optimize_for_synchronized")
-        'modern-c++-string-lenght>)
+  (eval-when-compile (sort '("carries_dependency" "deprecated" "fallthrough" "maybe_unused" "nodiscard" "noreturn" "optimize_for_synchronized")
+                           'modern-c++-string-lenght>))
   "List of C++ attributes. See doc:
 http://en.cppreference.com/w/cpp/language/attributes"
   :type '(choice (const :tag "Disabled" nil)
@@ -103,8 +105,8 @@ http://en.cppreference.com/w/cpp/language/attributes"
   :group 'modern-c++-font-lock)
 
 (defcustom modern-c++-operators
-  (sort '("...")
-        'modern-c++-string-lenght>)
+  (eval-when-compile (sort '("...")
+                           'modern-c++-string-lenght>))
   "List of C++ assignment operators. Left Intentionally almost
 empty. The user will choose what should be font-locked. By
 default I want to avoid a 'christmas tree' C++ code. For more
@@ -122,8 +124,8 @@ http://en.cppreference.com/w/cpp/language/integer_literal"
   :type 'booleanp
   :group 'modern-c++-font-lock)
 
-(setq modern-c++-font-lock-literal-integer
-  (let* ((integer-suffix-regexp (regexp-opt (sort '("ull" "LLu" "LLU" "llu" "llU" "uLL" "ULL" "Ull" "ll" "LL" "ul" "uL" "Ul" "UL" "lu" "lU" "LU" "Lu" "u" "U" "l" "L") 'modern-c++-string-lenght>)))
+(defvar modern-c++-font-lock-literal-integer
+  (let* ((integer-suffix-regexp (eval-when-compile (regexp-opt (sort '("ull" "LLu" "LLU" "llu" "llU" "uLL" "ULL" "Ull" "ll" "LL" "ul" "uL" "Ul" "UL" "lu" "lU" "LU" "Lu" "u" "U" "l" "L") 'modern-c++-string-lenght>))))
          (not-hex-digit-regexp "[^0-9a-fA-F']")
          (literal-binary-regexp (concat not-hex-digit-regexp "\\(0[bB]\\)\\([01']+\\)\\(" integer-suffix-regexp "?\\)"))
          (literal-octal-regexp (concat not-hex-digit-regexp "\\(0\\)\\([0-7']+\\)\\(" integer-suffix-regexp "?\\)"))
@@ -145,23 +147,23 @@ http://en.cppreference.com/w/cpp/language/integer_literal"
         (,literal-dec-regexp (1 font-lock-constant-face)
                              (2 font-lock-keyword-face))))))
 
-(setq modern-c++-font-lock-keywords
-      (let ((types-regexp (regexp-opt modern-c++-types 'words))
-            (preprocessors-regexp (regexp-opt modern-c++-preprocessors))
-            (keywords-regexp (regexp-opt modern-c++-keywords 'symbols))
-            (literal-regexp (regexp-opt modern-c++-literals 'words))
-            (attributes-regexp
-             (concat "\\[\\[\\(" (regexp-opt modern-c++-attributes 'words) "\\).*\\]\\]"))
-            (operators-regexp (regexp-opt modern-c++-operators)))
-        `(
-          ;; Note: order below matters, because once colored, that part
-          ;; won't change. In general, longer words first
-          (,types-regexp (0 font-lock-type-face))
-          (,preprocessors-regexp (0 font-lock-preprocessor-face))
-          (,literal-regexp (0 font-lock-constant-face))
-          (,attributes-regexp (1 font-lock-constant-face))
-          (,operators-regexp (0 font-lock-function-name-face))
-          (,keywords-regexp (0 font-lock-keyword-face)))))
+(defvar modern-c++-font-lock-keywords
+  (let ((types-regexp (regexp-opt modern-c++-types 'words))
+        (preprocessors-regexp (regexp-opt modern-c++-preprocessors))
+        (keywords-regexp (regexp-opt modern-c++-keywords 'symbols))
+        (literal-regexp (regexp-opt modern-c++-literals 'words))
+        (attributes-regexp
+         (concat "\\[\\[\\(" (regexp-opt modern-c++-attributes 'words) "\\).*\\]\\]"))
+        (operators-regexp (regexp-opt modern-c++-operators)))
+    `(
+      ;; Note: order below matters, because once colored, that part
+      ;; won't change. In general, longer words first
+      (,types-regexp (0 font-lock-type-face))
+      (,preprocessors-regexp (0 font-lock-preprocessor-face))
+      (,literal-regexp (0 font-lock-constant-face))
+      (,attributes-regexp (1 font-lock-constant-face))
+      (,operators-regexp (0 font-lock-function-name-face))
+      (,keywords-regexp (0 font-lock-keyword-face)))))
 
 (defun modern-c++-font-lock-add-keywords (&optional mode)
   "Install keywords into major MODE, or into current buffer if nil."
