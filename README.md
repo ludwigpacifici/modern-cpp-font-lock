@@ -2,6 +2,7 @@
 ***
 
 Syntax coloring support for "Modern C++" - until C++17 and TS (Technical Specification). It is recommended to use it in addition with the `c++-mode` major-mode.
+***
 
 # Preview #
 
