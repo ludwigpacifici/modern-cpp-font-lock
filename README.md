@@ -7,13 +7,15 @@ Syntax coloring support for "Modern C++" - until C++17 and TS (Technical Specifi
 
 ## Preview ##
 
-Using GNU Emacs 24.5.1 and CC Mode version 5.32.5. `modern-c++-font-lock-mode` is enabled:
+`modern-c++-font-lock-mode` is enabled:
 
-![See img/mc++fl-on.png for screenshot](./img/mc++fl-on.png)
+<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/mc%2B%2Bfl-on.png"/></p>
 
 `modern-c++-font-lock-mode` is disabled:
 
-![See img/mc++fl-off.png for screenshot](./img/mc++fl-off.png)
+<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/mc%2B%2Bfl-off.png"/></p>
+
+Using `GNU Emacs 24.5.1` and `CC Mode version 5.32.5`.
 
 ## Installation ##
 
@@ -73,11 +75,11 @@ By default, operators are no font locked (to avoid the _christmas tree_ effect).
 
 With `c++-mode` and `modern-c++-font-lock-mode` enabled, you will see by default:
 
-![See img/all-operator-off-sample.png for screenshot](./img/all-operator-off-sample.png)
+<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/all-operator-off-sample.png"/></p>
 
 Add `(add-to-list 'modern-c++-operators "=")` in your init file to enable extra font locking for operators. Now, `=` is highlighted:
 
-![See img/all-operator-on-sample.png for screenshot](./img/all-operator-on-sample.png)
+<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/all-operator-on-sample.png"/></p>
 
 ### Example: Disable font-lock for attributes  ###
 
@@ -85,17 +87,17 @@ You do not like some part of the font-locking? Fair enough. Let's disable the sy
 
 With `c++-mode` and `modern-c++-font-lock-mode` enabled, you will see by default:
 
-![See img/attributes-on.png for screenshot](./img/attributes-on.png)
+<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/attributes-on.png"/></p>
 
 Add `(setq modern-c++-attributes nil)` in your init file to disable font locking for C++ attributes. Now, `[[maybe_unused]]` is no more highlighted:
 
-![See img/attributes-off.png for screenshot](./img/attributes-off.png)
+<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/attributes-off.png"/></p>
 
 ## Mode line ##
 
 When `modern-c++-font-lock-mode` is activated, `mc++fl` is displayed.
 
-![See img/mode-line.png for screenshot](./img/mode-line.png)
+<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/mode-line.png"/></p>
 
 ## Feedback ##
 
