@@ -1,11 +1,9 @@
 <p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/logo.png"/></p>
 ***
 
-# Modern C++ font-lock for Emacs #
-
 Syntax coloring support for "Modern C++" - until C++17 and TS (Technical Specification). It is recommended to use it in addition with the `c++-mode` major-mode.
 
-## Preview ##
+# Preview #
 
 `modern-c++-font-lock-mode` is enabled:
 
@@ -17,9 +15,9 @@ Syntax coloring support for "Modern C++" - until C++17 and TS (Technical Specifi
 
 Using `GNU Emacs 24.5.1` and `CC Mode version 5.32.5`.
 
-## Installation ##
+# Installation #
 
-### Melpa ###
+## Melpa ##
 
 `modern-cpp-font-lock` is available on the major `package.el` community maintained repo - [MELPA](http://melpa.org).
 
@@ -35,9 +33,9 @@ or:
 
     (modern-c++-font-lock-global-mode t)
 
-### Manual ###
+## Manual ##
 
-#### Global setup ####
+### Global setup ###
 
 Download `modern-cpp-font-lock.el` into a directory of your [load-path][load-path]. Place the following lines in a suitable init file:
 
@@ -48,13 +46,13 @@ Download `modern-cpp-font-lock.el` into a directory of your [load-path][load-pat
 
 [load-path]: https://www.gnu.org/software/emacs/manual/html_node/emacs/Lisp-Libraries.html
 
-#### Local ####
+### Local ###
 
 For the current buffer, the minor-mode can be turned on/off via the command:
 
 <kbd>M-x</kbd> `modern-c++-font-lock-mode` <kbd>[RET]</kbd>
 
-## Configuration ##
+# Configuration #
 
 You can modify the following lists to recognize more words or set it to `nil` to partially disable font locking:
 
@@ -69,7 +67,7 @@ Set to `t` (default value) to enable the following options or otherwise to `nil`
 
  * `modern-c++-literal-integer` - `0b101010`, `18446744073709550592LLU`, `0XdeadBABEu`...
 
-### Example: Enable font-lock for more operators ###
+## Example: Enable font-lock for more operators ##
 
 By default, operators are no font locked (to avoid the _christmas tree_ effect). However, you could argue they can be overloaded and it could make sense to highlight all/some of them. It is a perfect example to show you how to customize this minor-mode:
 
@@ -81,7 +79,7 @@ Add `(add-to-list 'modern-c++-operators "=")` in your init file to enable extra 
 
 <p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/all-operator-on-sample.png"/></p>
 
-### Example: Disable font-lock for attributes  ###
+## Example: Disable font-lock for attributes ##
 
 You do not like some part of the font-locking? Fair enough. Let's disable the syntax highlighting for C++ attributes.
 
@@ -93,13 +91,13 @@ Add `(setq modern-c++-attributes nil)` in your init file to disable font locking
 
 <p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/attributes-off.png"/></p>
 
-## Mode line ##
+# Mode line #
 
 When `modern-c++-font-lock-mode` is activated, `mc++fl` is displayed.
 
 <p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/mode-line.png"/></p>
 
-## Feedback ##
+# Feedback #
 
 Do not hesitate to ask questions or share suggestions.
 
