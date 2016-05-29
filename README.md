@@ -1,4 +1,4 @@
-<p align="center"><img src="./logo.png"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/logo.png"/></p>
 ***
 
 # Modern C++ font-lock for Emacs #
