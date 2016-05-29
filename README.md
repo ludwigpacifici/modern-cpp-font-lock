@@ -1,5 +1,5 @@
-[![License GPL 3](https://img.shields.io/badge/license-GPL_3-green.svg)](http://www.gnu.org/licenses/gpl-3.0.txt)
-[![MELPA](http://melpa.org/packages/modern-cpp-font-lock-badge.svg)](http://melpa.org/#/modern-cpp-font-lock)
+<p align="center"><img src="./logo.png"/></p>
+***
 
 # Modern C++ font-lock for Emacs #
 
@@ -43,6 +43,8 @@ Download `modern-cpp-font-lock.el` into a directory of your [load-path][load-pat
     (modern-c++-font-lock-global-mode t)
 
 `modern-c++-font-lock-mode` will be activated for buffers using the `c++-mode` major-mode.
+
+[load-path]: https://www.gnu.org/software/emacs/manual/html_node/emacs/Lisp-Libraries.html
 
 #### Local ####
 
@@ -89,10 +91,6 @@ Add `(setq modern-c++-attributes nil)` in your init file to disable font locking
 
 ![See img/attributes-off.png for screenshot](./img/attributes-off.png)
 
-### More customization! ###
-
-With the two previous examples, you can entirely re-define the font locking. Behind the scene of each variable, it's simply a list of strings. You can set it to `nil` and then add your own keywords.
-
 ## Mode line ##
 
 When `modern-c++-font-lock-mode` is activated, `mc++fl` is displayed.
@@ -107,4 +105,6 @@ Happy coding!
 
 [Lud](http://lud.cc)
 
-[load-path]: https://www.gnu.org/software/emacs/manual/html_node/emacs/Lisp-Libraries.html
+***
+[![License GPL 3](https://img.shields.io/badge/license-GPL_3-green.svg)](http://www.gnu.org/licenses/gpl-3.0.txt)
+[![MELPA](http://melpa.org/packages/modern-cpp-font-lock-badge.svg)](http://melpa.org/#/modern-cpp-font-lock)
