@@ -1,7 +1,7 @@
 <p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/logo.png"/></p>
 ***
 
-Syntax highlighting support for "Modern C++" - until C++17 and Technical Specification. This package aims to provide a simple highlight of the C++ language without dependency (such as Clang).
+Syntax highlighting support for "Modern C++" - until C++17 and Technical Specification. This package aims to provide a simple highlight of the C++ language without dependency.
 
 It is recommended to use it in addition with the `c++-mode` major mode for extra highlighting (user defined types, functions, etc.) and indentation.
 ***
