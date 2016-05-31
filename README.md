@@ -111,4 +111,4 @@ Happy coding!
 ***
 [![License GPL 3](https://img.shields.io/badge/license-GPL_3-green.svg)](http://www.gnu.org/licenses/gpl-3.0.txt)
 [![MELPA](http://melpa.org/packages/modern-cpp-font-lock-badge.svg)](http://melpa.org/#/modern-cpp-font-lock)
-[![Donate Paypal](https://img.shields.io/badge/Donate-Paypal-lightgrey.svg)](paypal.me/ludwigpacifici)
+[![Donate Paypal](https://img.shields.io/badge/Donate-Paypal-lightgrey.svg)](https://www.paypal.me/ludwigpacifici)
