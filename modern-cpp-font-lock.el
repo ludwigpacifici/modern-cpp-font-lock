@@ -12,9 +12,13 @@
 
 ;;; Commentary:
 
-;; Syntax coloring support for "Modern C++" - until C++17 and TS
-;; (Technical Specification). It is recommended to use it in addition
-;; with the `c++-mode` major-mode.
+;; Syntax highlighting support for "Modern C++" - until C++17 and
+;; Technical Specification. This package aims to provide a simple
+;; highlight of the C++ language without dependency.
+
+;; It is recommended to use it in addition with the c++-mode major
+;; mode for extra highlighting (user defined types, functions, etc.)
+;; and indentation.
 
 ;; Melpa: [M-x] package-install [RET] modern-cpp-font-lock [RET]
 ;; In your init Emacs file add:
