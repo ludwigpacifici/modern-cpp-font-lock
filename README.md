@@ -1,6 +1,10 @@
 <p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/logo.png"/></p>
 ***
 
+[![License GPL 3](https://img.shields.io/badge/license-GPL_3-green.svg)](http://www.gnu.org/licenses/gpl-3.0.txt)
+[![MELPA](http://melpa.org/packages/modern-cpp-font-lock-badge.svg)](http://melpa.org/#/modern-cpp-font-lock)
+[![Donate Paypal](https://img.shields.io/badge/Donate-Paypal-lightgrey.svg)](https://www.paypal.me/ludwigpacifici)
+
 Syntax highlighting support for "Modern C++" - until C++17 and Technical Specification. This package aims to provide a simple highlight of the C++ language without dependency.
 
 It is recommended to use it in addition with the `c++-mode` major mode for extra highlighting (user defined types, functions, etc.) and indentation.
@@ -10,11 +14,11 @@ It is recommended to use it in addition with the `c++-mode` major mode for extra
 
 `modern-c++-font-lock-mode` is enabled:
 
-<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/mc%2B%2Bfl-on.png"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/mc%2B%2Bfl-on.png" width="640" /></p>
 
 `modern-c++-font-lock-mode` is disabled:
 
-<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/mc%2B%2Bfl-off.png"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/mc%2B%2Bfl-off.png" width="640" /></p>
 
 Using `GNU Emacs 24.5.1` and `CC Mode version 5.32.5`.
 
@@ -98,7 +102,7 @@ Add `(setq modern-c++-attributes nil)` in your init file to disable font locking
 
 When `modern-c++-font-lock-mode` is activated, `mc++fl` is displayed.
 
-<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/mode-line.png"/></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/mode-line.png" width="640" /></p>
 
 # Feedback #
 
@@ -107,8 +111,3 @@ Do not hesitate to ask questions or share suggestions.
 Happy coding!
 
 [Lud](http://lud.cc)
-
-***
-[![License GPL 3](https://img.shields.io/badge/license-GPL_3-green.svg)](http://www.gnu.org/licenses/gpl-3.0.txt)
-[![MELPA](http://melpa.org/packages/modern-cpp-font-lock-badge.svg)](http://melpa.org/#/modern-cpp-font-lock)
-[![Donate Paypal](https://img.shields.io/badge/Donate-Paypal-lightgrey.svg)](https://www.paypal.me/ludwigpacifici)
