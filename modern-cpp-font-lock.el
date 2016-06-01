@@ -53,8 +53,9 @@
   "Provides font-locking as a Minor Mode for Modern C++"
   :group 'faces)
 
-(defun modern-c++-string-lenght< (a b) (< (length a) (length b)))
-(defun modern-c++-string-lenght> (a b) (not (modern-c++-string-lenght< a b)))
+(eval-and-compile
+  (defun modern-c++-string-lenght< (a b) (< (length a) (length b)))
+  (defun modern-c++-string-lenght> (a b) (not (modern-c++-string-lenght< a b))))
 
 (defcustom modern-c++-types
   (eval-when-compile (sort '("bool" "char" "char16_t" "char32_t" "double" "float" "int" "long" "short" "signed" "unsigned" "void" "wchar_t")
