@@ -12,6 +12,7 @@ compile:
 
 test:
 	@echo "Using $(shell which $(emacs))"
+	@echo "$(shell $(emacs) --version)"
 	$(emacs) $(emacs_opt) modern-cpp-font-lock-test-setup.el
 
 clean:
