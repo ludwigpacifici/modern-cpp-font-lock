@@ -13,7 +13,6 @@ compile:
 test:
 	@echo "Using $(shell which $(emacs))"
 	$(emacs) $(emacs_opt) modern-cpp-font-lock-test-setup.el
-	@echo "done"
 
 clean:
 	rm -rf *.elc test/*.elc $(faceup_dir)
