@@ -1,8 +1,3 @@
-// How to test:
-// 1. Open this file in fundamental-mode: [M-x] fundamental-mode [RET]
-// 2. Enable the C++ font locking: [M-x] modern-c++-font-lock-mode [RET]
-// Is there an automatic way to check the font-lock?
-
 // Expect font lock
 
 bool

@@ -22,7 +22,7 @@
       (file-name-directory load-file-name)
     default-directory))
 
-(dolist (dir '("." ".." "faceup"))
+(dolist (dir '("." "./faceup"))
   (add-to-list 'load-path
                (concat modern-cpp-font-lock-test-setup-directory dir)))
 
