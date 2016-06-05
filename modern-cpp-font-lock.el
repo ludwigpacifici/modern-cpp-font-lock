@@ -209,15 +209,9 @@ http://en.cppreference.com/w/cpp/language/integer_literal"
         (font-lock-fontify-buffer)))))
 
 ;;;###autoload
-(defcustom modern-c++-font-lock-modes '(c++-mode)
-  "List of major modes where Modern C++ Font Lock Global mode should be enabled."
-  :group 'modern-c++-font-lock
-  :type '(repeat symbol))
-
-;;;###autoload
 (define-global-minor-mode modern-c++-font-lock-global-mode modern-c++-font-lock-mode
   (lambda ()
-    (when (apply 'derived-mode-p modern-c++-font-lock-modes)
+    (when (apply 'derived-mode-p '(c++-mode))
       (modern-c++-font-lock-mode 1)))
   :group 'modern-c++-font-lock)
 
