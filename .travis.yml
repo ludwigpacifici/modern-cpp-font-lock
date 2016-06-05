@@ -9,4 +9,4 @@ before_install:
   - sudo apt-get install -qq $emacs
 
 script:
-  - make
+  - make test
