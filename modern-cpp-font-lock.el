@@ -4,7 +4,7 @@
 
 ;; Author: Ludwig PACIFICI <ludwig@lud.cc>
 ;; URL: https://github.com/ludwigpacifici/modern-cpp-font-lock
-;; Version: 0.1.1
+;; Version: 0.1.2
 ;; Created: 12 May 2016
 ;; Keywords: languages, c++, cpp, font-lock
 
@@ -161,11 +161,11 @@ http://en.cppreference.com/w/cpp/language/integer_literal"
 (defun modern-c++-generate-font-lock-literal-integer ()
   (eval-when-compile
     (let* ((integer-suffix-regexp (regexp-opt (sort '("ull" "LLu" "LLU" "llu" "llU" "uLL" "ULL" "Ull" "ll" "LL" "ul" "uL" "Ul" "UL" "lu" "lU" "LU" "Lu" "u" "U" "l" "L") 'modern-c++-string-lenght>)))
-           (not-hex-digit-regexp "[^0-9a-fA-F']")
-           (literal-binary-regexp (concat not-hex-digit-regexp "\\(0[bB]\\)\\([01']+\\)\\(" integer-suffix-regexp "?\\)"))
-           (literal-octal-regexp (concat not-hex-digit-regexp "\\(0\\)\\([0-7']+\\)\\(" integer-suffix-regexp "?\\)"))
-           (literal-hex-regexp (concat not-hex-digit-regexp "\\(0[xX]\\)\\([0-9a-fA-F']+\\)\\(" integer-suffix-regexp "?\\)"))
-           (literal-dec-regexp (concat not-hex-digit-regexp "\\([1-9][0-9']*\\)\\(" integer-suffix-regexp "\\)")))
+           (not-alpha-numeric-regexp "[^0-9a-zA-Z'\\]")
+           (literal-binary-regexp (concat not-alpha-numeric-regexp "\\(0[bB]\\)\\([01']+\\)\\(" integer-suffix-regexp "?\\)"))
+           (literal-octal-regexp (concat not-alpha-numeric-regexp "\\(0\\)\\([0-7']+\\)\\(" integer-suffix-regexp "?\\)"))
+           (literal-hex-regexp (concat not-alpha-numeric-regexp "\\(0[xX]\\)\\([0-9a-fA-F']+\\)\\(" integer-suffix-regexp "?\\)"))
+           (literal-dec-regexp (concat not-alpha-numeric-regexp "\\([1-9][0-9']*\\)\\(" integer-suffix-regexp "\\)")))
       (setq modern-c++-font-lock-literal-integer
             `(
               ;; Note: order below matters, because once colored, that part
@@ -182,17 +182,63 @@ http://en.cppreference.com/w/cpp/language/integer_literal"
               (,literal-dec-regexp (1 font-lock-constant-face)
                                    (2 font-lock-keyword-face)))))))
 
+(defcustom modern-c++-literal-string
+  t
+  "Enable font-lock for string literal. For more information,
+see documentation:
+http://en.cppreference.com/w/cpp/language/string_literal"
+  :type 'boolean
+  :group 'modern-c++-font-lock)
+
+(defvar modern-c++-font-lock-literal-string nil)
+
+(defun modern-c++-generate-font-lock-literal-string ()
+  (eval-when-compile
+    (let* ((simple-string-regexp "\"[^\"]*\"")
+           (raw "R")
+           (prefix-regexp
+            (regexp-opt (sort '("L" "u8" "u" "U") 'modern-c++-string-lenght>)))
+           (literal-string-regexp
+            (concat "\\(" prefix-regexp "?\\)\\(" simple-string-regexp "\\)\\(s?\\)"))
+           (delimiter-group-regexp "\\([^\\s-\\\\()]\\{1,16\\}\\)")
+           (raw-delimiter-literal-string-regexp
+            (concat "\\(" prefix-regexp "?" raw
+                    "\"" delimiter-group-regexp "(\\)"
+                    "\\(\\(.\\|\n\\)*?\\)"
+                    "\\()\\2\"s?\\)"))
+           (raw-literal-string-regexp
+            (concat "\\(" prefix-regexp "?" raw "\"(\\)"
+                    "\\(\\(.\\|\n\\)*?\\)"
+                    "\\()\"s?\\)")))
+      (setq modern-c++-font-lock-literal-string
+            `(
+              ;; Note: order below matters, because once colored, that part
+              ;; won't change. In general, longer words first
+              (,raw-delimiter-literal-string-regexp (1 font-lock-constant-face)
+                                                    (3 font-lock-string-face)
+                                                    (5 font-lock-constant-face))
+              (,raw-literal-string-regexp (1 font-lock-constant-face)
+                                          (2 font-lock-string-face)
+                                          (4 font-lock-constant-face))
+              (,literal-string-regexp (1 font-lock-constant-face)
+                                      (2 font-lock-string-face)
+                                      (3 font-lock-constant-face)))))))
+
 (defun modern-c++-font-lock-add-keywords (&optional mode)
   "Install keywords into major MODE, or into current buffer if nil."
   (font-lock-add-keywords mode (modern-c++-generate-font-lock-keywords) nil)
   (when modern-c++-literal-integer
-    (font-lock-add-keywords mode (modern-c++-generate-font-lock-literal-integer) nil)))
+    (font-lock-add-keywords mode (modern-c++-generate-font-lock-literal-integer) nil))
+  (when modern-c++-literal-string
+    (font-lock-add-keywords mode (modern-c++-generate-font-lock-literal-string) nil)))
 
 (defun modern-c++-font-lock-remove-keywords (&optional mode)
   "Remove keywords from major MODE, or from current buffer if nil."
   (font-lock-remove-keywords mode modern-c++-font-lock-keywords)
   (when modern-c++-literal-integer
-    (font-lock-remove-keywords mode modern-c++-font-lock-literal-integer)))
+    (font-lock-remove-keywords mode modern-c++-font-lock-literal-integer))
+  (when modern-c++-literal-string
+    (font-lock-remove-keywords mode modern-c++-font-lock-literal-string)))
 
 ;;;###autoload
 (define-minor-mode modern-c++-font-lock-mode

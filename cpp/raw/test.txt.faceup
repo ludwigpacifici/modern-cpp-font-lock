@@ -134,7 +134,7 @@
 
 [[«c:carries_dependency»]]
 [[«c:deprecated»]]
-[[«c:deprecated»("abc")]]
+[[«c:deprecated»(«s:"abc"»)]]
 [[«c:fallthrough»]]
 [[«c:maybe_unused»]]
 [[«c:nodiscard»]]

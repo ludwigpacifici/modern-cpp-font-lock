@@ -76,6 +76,7 @@ You can modify the following lists to recognize more words or set it to `nil` to
 Set to `t` (default value) to enable the following options or otherwise to `nil`:
 
  * `modern-c++-literal-integer` - `0b101010`, `18446744073709550592LLU`, `0XdeadBABEu`...
+ * `modern-c++-literal-string` - `R"xyz()")xyz"`, `L"hello\ngoodbye"`, `'"abcd"`...
 
 ## Example: Enable font-lock for more operators ##
 

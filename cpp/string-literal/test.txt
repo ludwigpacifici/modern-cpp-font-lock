@@ -1,0 +1,62 @@
+auto c = "hello";
+auto c = u8"hello";
+auto c = L"hello";
+auto c = u"hello";
+auto c = U"hello";
+auto c = R"("Hello \ world")";
+auto c = u8R"("Hello \ world")";
+auto c = LR"("Hello \ world")";
+auto c = uR"("Hello \ world")";
+auto c = UR"("Hello \ world")";
+auto c = "hello"s;
+auto c = u8"hello"s;
+auto c = L"hello"s;
+auto c = u"hello"s;
+auto c = U"hello"s;
+auto c = R"("Hello \ world")"s;
+auto c = u8R"("Hello \ world")"s;
+auto c = LR"("Hello \ world")"s;
+auto c = uR"("Hello \ world")"s;
+auto c = UR"("Hello \ world")"s;
+auto c = uR"foo(ahah)foo";
+auto c = "hello";
+auto c = uR"foo(
+Hello
+World
+)foo";
+auto c = "abcd";
+auto c = "yes\\no";
+auto c = u8"Hello World";
+auto c = u8"\U0001F607 is O:-)";
+auto c = L"zyxw";
+auto c = L"hello\ngoodbye";
+auto c = u"hello";
+auto c = U"hello";
+auto c = R"(An unescaped \ character)";
+auto c = LR"(An unescaped \ character)";
+auto c = u8R"(An unescaped \ character)";
+auto c = uR"(An unescaped \ character)";
+auto c = UR"(An unescaped \ character)";
+auto c = LR"(hello
+goodbye)";
+auto c{"hello"s};
+auto c{u8"Hello World"};
+auto c{L"hello"s};
+auto c{u"hello"s};
+auto c{U"hello"s};
+auto c{UR"(She said "hello.")"s};
+auto c = L"Hello!";
+auto c = (wcslen(str) + 1) * sizeof(wchar_t);
+auto c = L"hello";
+auto c = "12" "34";
+auto c =  "12\
+34";
+auto c = "hello" " " " world";
+auto c = u8"hello" " "s u8"world"s;
+auto c = ":-)";
+auto c = L"😉 = \U0001F609 is ;-)";
+auto c = u8"😇 = \U0001F607 is O:-)";
+auto c = u"😃 = \U0001F603 is :-D";
+auto c = U"😎 = \U0001F60E is B-)";
+auto c = R"xyz()")xyz";
+auto c = R"()")";

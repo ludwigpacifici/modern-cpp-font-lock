@@ -1,0 +1,62 @@
+«k:auto» c = «s:"hello"»;
+«k:auto» c = «c:u8»«s:"hello"»;
+«k:auto» c = «c:L»«s:"hello"»;
+«k:auto» c = «c:u»«s:"hello"»;
+«k:auto» c = «c:U»«s:"hello"»;
+«k:auto» c = «c:R"(»«s:"Hello \ world"»«c:)"»;
+«k:auto» c = «c:u8R"(»«s:"Hello \ world"»«c:)"»;
+«k:auto» c = «c:LR"(»«s:"Hello \ world"»«c:)"»;
+«k:auto» c = «c:uR"(»«s:"Hello \ world"»«c:)"»;
+«k:auto» c = «c:UR"(»«s:"Hello \ world"»«c:)"»;
+«k:auto» c = «s:"hello"»«c:s»;
+«k:auto» c = «c:u8»«s:"hello"»«c:s»;
+«k:auto» c = «c:L»«s:"hello"»«c:s»;
+«k:auto» c = «c:u»«s:"hello"»«c:s»;
+«k:auto» c = «c:U»«s:"hello"»«c:s»;
+«k:auto» c = «c:R"(»«s:"Hello \ world"»«c:)"s»;
+«k:auto» c = «c:u8R"(»«s:"Hello \ world"»«c:)"s»;
+«k:auto» c = «c:LR"(»«s:"Hello \ world"»«c:)"s»;
+«k:auto» c = «c:uR"(»«s:"Hello \ world"»«c:)"s»;
+«k:auto» c = «c:UR"(»«s:"Hello \ world"»«c:)"s»;
+«k:auto» c = «c:uR"foo(»«s:ahah»«c:)foo"»;
+«k:auto» c = «s:"hello"»;
+«k:auto» c = «c:uR"foo(»«s:
+Hello
+World
+»«c:)foo"»;
+«k:auto» c = «s:"abcd"»;
+«k:auto» c = «s:"yes\\no"»;
+«k:auto» c = «c:u8»«s:"Hello World"»;
+«k:auto» c = «c:u8»«s:"\U0001F607 is O:-)"»;
+«k:auto» c = «c:L»«s:"zyxw"»;
+«k:auto» c = «c:L»«s:"hello\ngoodbye"»;
+«k:auto» c = «c:u»«s:"hello"»;
+«k:auto» c = «c:U»«s:"hello"»;
+«k:auto» c = «c:R"(»«s:An unescaped \ character»«c:)"»;
+«k:auto» c = «c:LR"(»«s:An unescaped \ character»«c:)"»;
+«k:auto» c = «c:u8R"(»«s:An unescaped \ character»«c:)"»;
+«k:auto» c = «c:uR"(»«s:An unescaped \ character»«c:)"»;
+«k:auto» c = «c:UR"(»«s:An unescaped \ character»«c:)"»;
+«k:auto» c = «c:LR"(»«s:hello
+goodbye»«c:)"»;
+«k:auto» c{«s:"hello"»«c:s»};
+«k:auto» c{«c:u8»«s:"Hello World"»};
+«k:auto» c{«c:L»«s:"hello"»«c:s»};
+«k:auto» c{«c:u»«s:"hello"»«c:s»};
+«k:auto» c{«c:U»«s:"hello"»«c:s»};
+«k:auto» c{«c:UR"(»«s:She said "hello."»«c:)"s»};
+«k:auto» c = «c:L»«s:"Hello!"»;
+«k:auto» c = (wcslen(str) + 1) * «k:sizeof»(«t:wchar_t»);
+«k:auto» c = «c:L»«s:"hello"»;
+«k:auto» c = «s:"12"» «s:"34"»;
+«k:auto» c =  «s:"12\
+34"»;
+«k:auto» c = «s:"hello"» «s:" "» «s:" world"»;
+«k:auto» c = «c:u8»«s:"hello"» «s:" "»«c:s» «c:u8»«s:"world"»«c:s»;
+«k:auto» c = «s:":-)"»;
+«k:auto» c = «c:L»«s:"😉 = \U0001F609 is ;-)"»;
+«k:auto» c = «c:u8»«s:"😇 = \U0001F607 is O:-)"»;
+«k:auto» c = «c:u»«s:"😃 = \U0001F603 is :-D"»;
+«k:auto» c = «c:U»«s:"😎 = \U0001F60E is B-)"»;
+«k:auto» c = «c:R"xyz(»«s:)"»«c:)xyz"»;
+«k:auto» c = «c:R"()"»)";
