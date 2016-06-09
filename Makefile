@@ -9,7 +9,8 @@ compile:
 	$(emacs) $(emacs_options) --eval="($(byte_compilation) \"modern-cpp-font-lock.el\")"
 
 prepare_test:
-	wget -P $(faceup_directory) https://raw.githubusercontent.com/Lindydancer/faceup/master/faceup.el
+	wget --no-clobber --directory-prefix $(faceup_directory) \
+https://raw.githubusercontent.com/Lindydancer/faceup/master/faceup.el
 
 compile_test:
 	$(emacs) $(emacs_options) --eval="($(byte_compilation) \"$(wildcard $(faceup_directory)/*.el)\")"
