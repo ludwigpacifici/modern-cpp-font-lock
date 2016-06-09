@@ -3,8 +3,10 @@
 
 [![License GPL 3](https://img.shields.io/badge/license-GPL_3-green.svg)](http://www.gnu.org/licenses/gpl-3.0.txt)
 [![MELPA](http://melpa.org/packages/modern-cpp-font-lock-badge.svg)](http://melpa.org/#/modern-cpp-font-lock)
-[![Donate Paypal](https://img.shields.io/badge/Donate-Paypal-lightgrey.svg)](https://www.paypal.me/ludwigpacifici)
 [![Build Status](https://travis-ci.org/ludwigpacifici/modern-cpp-font-lock.svg?branch=master)](https://travis-ci.org/ludwigpacifici/modern-cpp-font-lock)
+
+[![Donate Paypal](https://img.shields.io/badge/Donate-Paypal-lightgrey.svg)](https://www.paypal.me/ludwigpacifici)
+[![Donate Bitcoin](https://img.shields.io/badge/Donate-Bitcoin-lightgrey.svg)](https://www.coinbase.com/lud)
 
 Syntax highlighting support for "Modern C++" - until C++17 and Technical Specification. This package aims to provide a simple highlight of the C++ language without dependency.
 
