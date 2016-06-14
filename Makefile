@@ -18,7 +18,7 @@ compile_test:
 test: prepare_test compile compile_test
 	@echo "Using $(shell which $(emacs))"
 	@echo "$(shell $(emacs) --version)"
-	$(emacs) $(emacs_options) -l modern-cpp-font-lock-setup-test.el
+	$(emacs) $(emacs_options) -l ert -l modern-cpp-font-lock-setup-test.el -f ert-run-tests-batch-and-exit
 
 clean:
 	rm -rf *.elc $(faceup_directory)

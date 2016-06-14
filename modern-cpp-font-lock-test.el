@@ -1,22 +1,25 @@
 (require 'faceup)
 
-(defvar modern-cpp-font-lock-test-dir (faceup-this-file-directory))
+(defconst project-directory (faceup-this-file-directory)
+  "Directory where the project lives")
 
-(defun modern-cpp-font-lock-test-facit (dir)
-  "Test that `dir'/test.cc is fontifies as the .faceup file describes.
-`dir' is interpreted as relative to this source directory."
-  (faceup-test-font-lock-file 'c++-mode
-                              (concat
-                               modern-cpp-font-lock-test-dir
-                               dir
-                               "/test.cc")))
+(defconst test-directory "cpp"
+  "Directory name where facit tests are")
 
-(faceup-defexplainer modern-cpp-font-lock-test-facit)
+(defconst cpp-filename "test.cc"
+  "C++ filename that will be tested for font lock")
+
+(defun facit-test-paths (root directory file)
+  (mapcar (lambda (d) (concat root directory "/" d "/" file))
+          (directory-files directory nil "^[^\\.].*")))
+
+(defun facit-tests (root directory file)
+  (mapcar (lambda (path) (should (faceup-test-font-lock-file 'c++-mode path)))
+          (facit-test-paths root directory file)))
+
+(faceup-defexplainer facit-tests)
 
 (ert-deftest modern-cpp-font-lock-file-test ()
-  (should (modern-cpp-font-lock-test-facit "cpp/integer-literal"))
-  (should (modern-cpp-font-lock-test-facit "cpp/preview"))
-  (should (modern-cpp-font-lock-test-facit "cpp/raw"))
-  (should (modern-cpp-font-lock-test-facit "cpp/template")))
+  (facit-tests project-directory test-directory cpp-filename))
 
 (provide 'modern-cpp-font-lock-test)
