@@ -1,5 +1,3 @@
-// Expect font lock
-
 bool
 char
 char16_t
@@ -181,8 +179,6 @@ unsigned long long l3 = 18446744073709550592uLL;
 unsigned long long l4 = 18'446'744'073'709'550'592LLU;
 1U
 0xDeAdBaBeU == 0XdeadBABEu
-
-// Expect raw display
 
 abool
 achar

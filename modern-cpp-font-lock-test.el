@@ -14,7 +14,9 @@
 (faceup-defexplainer modern-cpp-font-lock-test-facit)
 
 (ert-deftest modern-cpp-font-lock-file-test ()
+  (should (modern-cpp-font-lock-test-facit "cpp/integer-literal"))
   (should (modern-cpp-font-lock-test-facit "cpp/preview"))
-  (should (modern-cpp-font-lock-test-facit "cpp/integer-literal")))
+  (should (modern-cpp-font-lock-test-facit "cpp/raw"))
+  (should (modern-cpp-font-lock-test-facit "cpp/template")))
 
 (provide 'modern-cpp-font-lock-test)

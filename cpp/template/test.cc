@@ -1,0 +1,13 @@
+template<class T1, class T2 > class X {};
+template<class T1, class T2 >class X {};
+template<class T1,class T2>class X {};
+template< class T1,class T2>class X {};
+template < class T1,class T2>class X {};
+template <class T1,class T2>class X {};
+template<typename T1, typename T2 > class X {};
+template<typename T1, typename T2 >class X {};
+template<typename T1,typename T2>class X {};
+template< typename T1,typename T2>class X {};
+template < typename T1,typename T2>class X {};
+template <typename T1,typename T2>class X {};
+template <template<class A>class T>struct X{};
