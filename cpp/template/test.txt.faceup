@@ -1,0 +1,13 @@
+«k:template»<«k:class» T1, «k:class» T2 > «k:class» X {};
+«k:template»<«k:class» T1, «k:class» T2 >«k:class» X {};
+«k:template»<«k:class» T1,«k:class» T2>«k:class» X {};
+«k:template»< «k:class» T1,«k:class» T2>«k:class» X {};
+«k:template» < «k:class» T1,«k:class» T2>«k:class» X {};
+«k:template» <«k:class» T1,«k:class» T2>«k:class» X {};
+«k:template»<«k:typename» T1, «k:typename» T2 > «k:class» X {};
+«k:template»<«k:typename» T1, «k:typename» T2 >«k:class» X {};
+«k:template»<«k:typename» T1,«k:typename» T2>«k:class» X {};
+«k:template»< «k:typename» T1,«k:typename» T2>«k:class» X {};
+«k:template» < «k:typename» T1,«k:typename» T2>«k:class» X {};
+«k:template» <«k:typename» T1,«k:typename» T2>«k:class» X {};
+«k:template» <«k:template»<«k:class» A>«k:class» T>«k:struct» X{};

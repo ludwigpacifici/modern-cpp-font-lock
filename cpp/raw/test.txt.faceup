@@ -24,7 +24,7 @@
 «p:#error»
 «p:#if»
 «p:#ifdef»
-«p:#if»«n:«p:n»»«p:def»
+«p:#ifndef»
 «p:#include»
 «p:#line»
 «p:#pragma STDC CX_LIMITED_RANGE»
@@ -66,7 +66,7 @@
 «k:catch»
 «k:class»
 «k:compl»
-«t:concept»
+«k:concept»
 «k:const»
 «k:const_cast»
 «k:constexpr»
@@ -79,7 +79,7 @@
 «k:else»
 «k:enum»
 «k:explicit»
-«t:export»
+«k:export»
 «k:extern»
 «k:final»
 «k:for»
@@ -92,13 +92,13 @@
 «k:mutable»
 «k:namespace»
 «k:new»
-«c:noexcept»
+«k:noexcept»
 «k:not»
 «k:not_eq»
 «k:operator»
 «k:or»
 «k:or_eq»
-«t:override»
+«k:override»
 «k:private»
 «k:protected»
 «k:public»
@@ -134,7 +134,7 @@
 
 [[«c:carries_dependency»]]
 [[«c:deprecated»]]
-[[«c:deprecated»(«s:"abc"»)]]
+[[«c:deprecated»("abc")]]
 [[«c:fallthrough»]]
 [[«c:maybe_unused»]]
 [[«c:nodiscard»]]
@@ -169,14 +169,14 @@
 «k:0x»«c:1»
 «k:0x»«c:2»
 «t:int» d = 42;
-«t:int» «v:o» = «k:0»«c:52»;
-«t:int» «v:x» = «k:0x»«c:2a»;
-«t:int» «v:X» = «k:0X»«c:2A»;
-«t:int» «v:b» = «k:0b»«c:101010»;
-«t:unsigned» «t:long» «t:long» «v:l1» = «c:18446744073709550592»«k:ull»;
-«t:unsigned» «t:long» «t:long» «v:l2» = «c:18446744073709550592»«k:llu»;
-«t:unsigned» «t:long» «t:long» «v:l3» = «c:18446744073709550592»«k:uLL»;
-«t:unsigned» «t:long» «t:long» «v:l4» = 18«s:'446'»744«s:'073'»709«s:'550'»592«k:LLU»;
+«t:int» o = «k:0»«c:52»;
+«t:int» x = «k:0x»«c:2a»;
+«t:int» X = «k:0X»«c:2A»;
+«t:int» b = «k:0b»«c:101010»;
+«t:unsigned» «t:long» «t:long» l1 = «c:18446744073709550592»«k:ull»;
+«t:unsigned» «t:long» «t:long» l2 = «c:18446744073709550592»«k:llu»;
+«t:unsigned» «t:long» «t:long» l3 = «c:18446744073709550592»«k:uLL»;
+«t:unsigned» «t:long» «t:long» l4 = «c:18'446'744'073'709'550'592»«k:LLU»;
 «c:1»«k:U»
 «k:0x»«c:DeAdBaBe»«k:U» == «k:0X»«c:deadBABE»«k:u»
 
@@ -247,24 +247,24 @@ a«p:__TIME__»
 a«p:__VA_AR_GS__»
 a«p:__cplusplus»
 a«p:__has_include»
-«p:#definea»
-«p:#defineda»
-«p:#elifa»
-«p:#elsea»
-«p:#endifa»
-«p:#errora»
-«p:#ifa»
-«p:#ifdefa»
-«p:#ifndefa»
-«p:#includea»
-«p:#linea»
+«p:#define»a
+«p:#defined»a
+«p:#elif»a
+«p:#else»a
+«p:#endif»a
+«p:#error»a
+«p:#if»a
+«p:#ifdef»a
+«p:#ifndef»a
+«p:#include»a
+«p:#line»a
 «p:#pragma STDC CX_LIMITED_RANGE»a
 «p:#pragma STDC FENV_ACCESS»a
 «p:#pragma STDC FP_CONTRACT»a
 «p:#pragma once»a
 «p:#pragma pack»a
-«p:#pragmaa»
-«p:#undefa»
+«p:#pragma»a
+«p:#undef»a
 «p:_Pragma»a
 «p:__DATE__»a
 «p:__FILE__»a
@@ -288,7 +288,7 @@ aand_eq
 aasm
 aatomic_cancel
 aatomic_commit
-aatomic_noexcept
+aatomic_«k:noexcept»
 aauto
 abitand
 abitor
@@ -365,7 +365,7 @@ axor_eq
 alignasa
 alignofa
 anda
-and_eqa
+«k:and»_eqa
 asma
 atomic_cancela
 atomic_commita
@@ -380,7 +380,7 @@ classa
 compla
 concepta
 consta
-const_casta
+«k:const»_casta
 constexpra
 continuea
 decltypea
@@ -406,10 +406,10 @@ namespacea
 newa
 noexcepta
 nota
-not_eqa
+«k:not»_eqa
 operatora
 ora
-or_eqa
+«k:or»_eqa
 overridea
 privatea
 protecteda
@@ -421,8 +421,8 @@ returna
 sizeofa
 «k:sizeof»«f:...»a
 statica
-static_asserta
-static_casta
+«k:static»_asserta
+«k:static»_casta
 structa
 switcha
 synchronizeda
@@ -431,7 +431,7 @@ thisa
 thread_locala
 throwa
 transaction_safea
-transaction_safe_dynamica
+«k:transaction_safe»_dynamica
 trya
 typedefa
 typeida
@@ -442,7 +442,7 @@ virtuala
 volatilea
 whilea
 xora
-xor_eqa
+«k:xor»_eqa
 
 carries_dependency]]
 deprecated]]
@@ -450,14 +450,14 @@ fallthrough]]
 maybe_unused]]
 nodiscard]]
 noreturn]]
-optimize_for_synchronized]]
+optimize_«k:for»_«k:synchronized»]]
 [[carries_dependency
 [[deprecated
 [[fallthrough
 [[maybe_unused
 [[nodiscard
 [[noreturn
-[[optimize_for_synchronized
+[[optimize_«k:for»_«k:synchronized»
 
 08
 09

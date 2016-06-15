@@ -14,7 +14,6 @@
 
 ;;; Code:
 
-(setq inhibit-startup-screen t)
 (prefer-coding-system 'utf-8)
 
 (defvar modern-cpp-font-lock-test-setup-directory
@@ -26,9 +25,8 @@
   (add-to-list 'load-path
                (concat modern-cpp-font-lock-test-setup-directory dir)))
 
-(require 'cc-mode)
 (require 'modern-cpp-font-lock)
-(add-hook 'c++-mode-hook #'modern-c++-font-lock-mode)
+(add-hook 'text-mode-hook #'modern-c++-font-lock-mode)
 
 (require 'modern-cpp-font-lock-test)
 

@@ -1,0 +1,22 @@
+«p:#pragma once»
+
+«p:#define» EXPAND_ME «p:__FILE__» " : " «p:__LINE__»
+
+«k:constexpr» «k:auto» pi = «c:314»«k:LLu»;
+«k:thread_local» «k:decltype»(pi) rage = «k:0b»«c:10»;
+
+[[«c:deprecated»("abc")]] «t:char16_t» *f() «k:noexcept» { «k:return» «c:nullptr»; }
+
+«k:template» <«k:typename» T> «k:struct» Foo {
+  «k:static_assert»(std::is_floating_point<T>::value,
+                "Foo<T>: T must be floating point");
+};
+
+«k:struct» A «k:final» : Foo {
+  A() = «k:default»;
+  [[«c:noreturn»]] «k:virtual» «t:void» foo() «k:override»;
+};
+
+«k:template» <«k:typename» T> «k:concept» «t:bool» EqualityComparable = «k:requires»(T a, T b) {
+  { a == b } -> «t:bool»;
+};
