@@ -26,7 +26,8 @@
 ;; or:
 ;;     (modern-c++-font-lock-global-mode t)
 
-;; For the current buffer, the minor-mode can be turned on/off via the command:
+;; For the current buffer, the minor-mode can be turned on/off via the
+;; command:
 ;;     [M-x] modern-c++-font-lock-mode [RET]
 
 ;; More documentation:
@@ -67,18 +68,6 @@
           'modern-c++-string-lenght>))
   "List of C++ types. See doc:
 http://en.cppreference.com/w/cpp/language/types"
-  :type '(choice (const :tag "Disabled" nil)
-                 (repeat string))
-  :group 'modern-c++-font-lock)
-
-(defcustom modern-c++-literals
-  (eval-when-compile
-    (sort '("false" "nullptr" "true")
-          'modern-c++-string-lenght>))
-  "List of C++ literals. See doc:
-http://en.cppreference.com/w/cpp/language/bool_literal and
-http://en.cppreference.com/w/cpp/language/nullptr and
-http://en.cppreference.com/w/cpp/language/integer_literal"
   :type '(choice (const :tag "Disabled" nil)
                  (repeat string))
   :group 'modern-c++-font-lock)
@@ -133,7 +122,6 @@ http://en.cppreference.com/w/cpp/language/operators"
   (let ((types-regexp (regexp-opt modern-c++-types 'words))
         (preprocessors-regexp (regexp-opt modern-c++-preprocessors))
         (keywords-regexp (regexp-opt modern-c++-keywords 'words))
-        (literal-regexp (regexp-opt modern-c++-literals 'words))
         (attributes-regexp
          (concat "\\[\\[\\(" (regexp-opt modern-c++-attributes 'words) "\\).*\\]\\]"))
         (operators-regexp (regexp-opt modern-c++-operators)))
@@ -143,14 +131,33 @@ http://en.cppreference.com/w/cpp/language/operators"
             ;; won't change. In general, longer words first
             (,types-regexp (0 font-lock-type-face))
             (,preprocessors-regexp (0 font-lock-preprocessor-face))
-            (,literal-regexp (0 font-lock-constant-face))
             (,attributes-regexp (1 font-lock-constant-face))
             (,operators-regexp (0 font-lock-function-name-face))
             (,keywords-regexp (0 font-lock-keyword-face))))))
 
+(defcustom modern-c++-literal-boolean
+  t
+  "Enable font-lock for boolean literals. For more information,
+see documentation:
+http://en.cppreference.com/w/cpp/language/bool_literal"
+  :type 'boolean
+  :group 'modern-c++-font-lock)
+
+(defvar modern-c++-font-lock-literal-boolean nil)
+
+(defun modern-c++-generate-font-lock-literal-boolean ()
+  (let ((literal-boolean-regexp (regexp-opt
+                                 (eval-when-compile (sort '("false" "true") 'modern-c++-string-lenght>))
+                                 'words)))
+    (setq modern-c++-font-lock-literal-boolean
+          `(
+            ;; Note: order below matters, because once colored, that part
+            ;; won't change. In general, longer words first
+            (,literal-boolean-regexp (0 font-lock-constant-face))))))
+
 (defcustom modern-c++-literal-integer
   t
-  "Enable font-lock for integer literal. For more information,
+  "Enable font-lock for integer literals. For more information,
 see documentation:
 http://en.cppreference.com/w/cpp/language/integer_literal"
   :type 'boolean
@@ -182,9 +189,29 @@ http://en.cppreference.com/w/cpp/language/integer_literal"
               (,literal-dec-regexp (1 font-lock-constant-face)
                                    (2 font-lock-keyword-face)))))))
 
+(defcustom modern-c++-literal-null-pointer
+  t
+  "Enable font-lock for null pointer literals. For more information,
+see documentation:
+http://en.cppreference.com/w/cpp/language/nullptr"
+  :type 'boolean
+  :group 'modern-c++-font-lock)
+
+(defvar modern-c++-font-lock-literal-null-pointer nil)
+
+(defun modern-c++-generate-font-lock-literal-null-pointer ()
+  (let ((literal-null-pointer-regexp (regexp-opt
+                                      (eval-when-compile (sort '("nullptr") 'modern-c++-string-lenght>))
+                                      'words)))
+    (setq modern-c++-font-lock-literal-null-pointer
+          `(
+            ;; Note: order below matters, because once colored, that part
+            ;; won't change. In general, longer words first
+            (,literal-null-pointer-regexp (0 font-lock-constant-face))))))
+
 (defcustom modern-c++-literal-string
   t
-  "Enable font-lock for string literal. For more information,
+  "Enable font-lock for string literals. For more information,
 see documentation:
 http://en.cppreference.com/w/cpp/language/string_literal"
   :type 'boolean
@@ -227,16 +254,24 @@ http://en.cppreference.com/w/cpp/language/string_literal"
 (defun modern-c++-font-lock-add-keywords (&optional mode)
   "Install keywords into major MODE, or into current buffer if nil."
   (font-lock-add-keywords mode (modern-c++-generate-font-lock-keywords) nil)
+  (when modern-c++-literal-boolean
+    (font-lock-add-keywords mode (modern-c++-generate-font-lock-literal-boolean) nil))
   (when modern-c++-literal-integer
     (font-lock-add-keywords mode (modern-c++-generate-font-lock-literal-integer) nil))
+  (when modern-c++-literal-null-pointer
+    (font-lock-add-keywords mode (modern-c++-generate-font-lock-literal-null-pointer) nil))
   (when modern-c++-literal-string
     (font-lock-add-keywords mode (modern-c++-generate-font-lock-literal-string) nil)))
 
 (defun modern-c++-font-lock-remove-keywords (&optional mode)
   "Remove keywords from major MODE, or from current buffer if nil."
   (font-lock-remove-keywords mode modern-c++-font-lock-keywords)
+  (when modern-c++-literal-boolean
+    (font-lock-remove-keywords mode modern-c++-font-lock-literal-boolean))
   (when modern-c++-literal-integer
     (font-lock-remove-keywords mode modern-c++-font-lock-literal-integer))
+  (when modern-c++-literal-null-pointer
+    (font-lock-remove-keywords mode modern-c++-font-lock-literal-null-pointer))
   (when modern-c++-literal-string
     (font-lock-remove-keywords mode modern-c++-font-lock-literal-string)))
 
