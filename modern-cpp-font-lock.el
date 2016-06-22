@@ -168,7 +168,7 @@ http://en.cppreference.com/w/cpp/language/integer_literal"
 (defun modern-c++-generate-font-lock-literal-integer ()
   (eval-when-compile
     (let* ((integer-suffix-regexp (regexp-opt (sort '("ull" "LLu" "LLU" "llu" "llU" "uLL" "ULL" "Ull" "ll" "LL" "ul" "uL" "Ul" "UL" "lu" "lU" "LU" "Lu" "u" "U" "l" "L") 'modern-c++-string-lenght>)))
-           (not-alpha-numeric-regexp "[^0-9a-zA-Z'\\]")
+           (not-alpha-numeric-regexp "[^0-9a-zA-Z'\\\.]")
            (literal-binary-regexp (concat not-alpha-numeric-regexp "\\(0[bB]\\)\\([01']+\\)\\(" integer-suffix-regexp "?\\)"))
            (literal-octal-regexp (concat not-alpha-numeric-regexp "\\(0\\)\\([0-7']+\\)\\(" integer-suffix-regexp "?\\)"))
            (literal-hex-regexp (concat not-alpha-numeric-regexp "\\(0[xX]\\)\\([0-9a-fA-F']+\\)\\(" integer-suffix-regexp "?\\)"))
