@@ -117,3 +117,7 @@ auto i = 1'000'000;
 auto i = 0.000'015'3;
 auto i = 0b0100'1100'0110;
 auto i = 1'0'0'000'00;
+auto i_0x123 = foo_0X123();
+auto i_0123 = foo_0123();
+auto i_0b101 = foo_0B010();
+auto i_123 = foo_123();
