@@ -109,6 +109,10 @@ When `modern-c++-font-lock-mode` is activated, `mc++fl` is displayed.
 
 <p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/mode-line.png" width="640" /></p>
 
+# Testing #
+
+Font-lock keywords are tested with the [faceup](https://github.com/Lindydancer/faceup) package of [Anders Lindgren](https://github.com/Lindydancer).
+
 # Feedback #
 
 Do not hesitate to ask questions or share suggestions.
