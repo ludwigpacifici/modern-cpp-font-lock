@@ -119,7 +119,7 @@ http://en.cppreference.com/w/cpp/language/operators"
 (defvar modern-c++-font-lock-keywords nil)
 
 (defun modern-c++-generate-font-lock-keywords ()
-  (let ((types-regexp (regexp-opt modern-c++-types 'words))
+  (let ((types-regexp (regexp-opt modern-c++-types 'symbols))
         (preprocessors-regexp (regexp-opt modern-c++-preprocessors))
         (keywords-regexp (regexp-opt modern-c++-keywords 'words))
         (attributes-regexp
@@ -251,6 +251,35 @@ http://en.cppreference.com/w/cpp/language/string_literal"
                                       (2 font-lock-string-face)
                                       (3 font-lock-constant-face)))))))
 
+(defcustom modern-c++-stl-cstdint
+  t
+  "Enable font-lock for header <cstdint>. For more information,
+see documentation:
+http://en.cppreference.com/w/cpp/header/cstdint"
+  :type 'boolean
+  :group 'modern-c++-font-lock)
+
+(defvar modern-c++-font-lock-stl-cstdint nil)
+
+(defun modern-c++-generate-font-lock-stl-cstdint ()
+  (let ((stl-cstdint-types (regexp-opt
+                            (eval-when-compile
+                              (sort (mapcar (function (lambda (x) (concat "std::" x)))
+                                            '("int8_t" "int16_t" "int32_t" "int64_t" "int_fast8_t" "int_fast16_t" "int_fast32_t" "int_fast64_t" "int_least8_t" "int_least16_t" "int_least32_t" "int_least64_t" "intmax_t" "intptr_t" "uint8_t" "uint16_t" "uint32_t" "uint64_t" "uint_fast8_t" "uint_fast16_t" "uint_fast32_t" "uint_fast64_t" "uint_least8_t" "uint_least16_t" "uint_least32_t" "uint_least64_t" "uintmax_t" "uintptr_t"))
+                                    'modern-c++-string-lenght>))
+                            'symbols))
+        (stl-cstdint-macro (regexp-opt
+                            (eval-when-compile
+                              (sort '("INT8_MIN" "INT16_MIN" "INT32_MIN" "INT64_MIN" "INT_FAST8_MIN" "INT_FAST16_MIN" "INT_FAST32_MIN" "INT_FAST64_MIN" "INT_LEAST8_MIN" "INT_LEAST16_MIN" "INT_LEAST32_MIN" "INT_LEAST64_MIN" "INTPTR_MIN" "INTMAX_MIN" "INT8_MAX" "INT16_MAX" "INT32_MAX" "INT64_MAX" "INT_FAST8_MAX" "INT_FAST16_MAX" "INT_FAST32_MAX" "INT_FAST64_MAX" "INT_LEAST8_MAX" "INT_LEAST16_MAX" "INT_LEAST32_MAX" "INT_LEAST64_MAX" "INTPTR_MAX" "INTMAX_MAX" "UINT8_MAX" "UINT16_MAX" "UINT32_MAX" "UINT64_MAX" "UINT_FAST8_MAX" "UINT_FAST16_MAX" "UINT_FAST32_MAX" "UINT_FAST64_MAX" "UINT_LEAST8_MAX" "UINT_LEAST16_MAX" "UINT_LEAST32_MAX" "UINT_LEAST64_MAX" "UINTPTR_MAX" "UINTMAX_MAX" "INT8_C" "INT16_C" "INT32_C" "INT64_C" "INTMAX_C" "UINT8_C" "UINT16_C" "UINT32_C" "UINT64_C" "UINTMAX_C" "PTRDIFF_MIN" "PTRDIFF_MAX" "SIZE_MAX" "SIG_ATOMIC_MIN" "SIG_ATOMIC_MAX" "WCHAR_MIN" "WCHAR_MAX" "WINT_MIN" "WINT_MAX")
+                                    'modern-c++-string-lenght>))
+                            'symbols)))
+    (setq modern-c++-font-lock-stl-cstdint
+          `(
+            ;; Note: order below matters, because once colored, that part
+            ;; won't change. In general, longer words first
+            (,stl-cstdint-types (0 font-lock-type-face))
+            (,stl-cstdint-macro (0 font-lock-preprocessor-face))))))
+
 (defun modern-c++-font-lock-add-keywords (&optional mode)
   "Install keywords into major MODE, or into current buffer if nil."
   (font-lock-add-keywords mode (modern-c++-generate-font-lock-keywords) nil)
@@ -261,7 +290,9 @@ http://en.cppreference.com/w/cpp/language/string_literal"
   (when modern-c++-literal-null-pointer
     (font-lock-add-keywords mode (modern-c++-generate-font-lock-literal-null-pointer) nil))
   (when modern-c++-literal-string
-    (font-lock-add-keywords mode (modern-c++-generate-font-lock-literal-string) nil)))
+    (font-lock-add-keywords mode (modern-c++-generate-font-lock-literal-string) nil))
+  (when modern-c++-stl-cstdint
+    (font-lock-add-keywords mode (modern-c++-generate-font-lock-stl-cstdint) nil)))
 
 (defun modern-c++-font-lock-remove-keywords (&optional mode)
   "Remove keywords from major MODE, or from current buffer if nil."
@@ -273,7 +304,9 @@ http://en.cppreference.com/w/cpp/language/string_literal"
   (when modern-c++-literal-null-pointer
     (font-lock-remove-keywords mode modern-c++-font-lock-literal-null-pointer))
   (when modern-c++-literal-string
-    (font-lock-remove-keywords mode modern-c++-font-lock-literal-string)))
+    (font-lock-remove-keywords mode modern-c++-font-lock-literal-string))
+  (when modern-c++-stl-cstdint
+    (font-lock-remove-keywords mode modern-c++-font-lock-stl-cstdint)))
 
 ;;;###autoload
 (define-minor-mode modern-c++-font-lock-mode
