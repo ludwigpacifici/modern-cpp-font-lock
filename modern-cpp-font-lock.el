@@ -12,7 +12,7 @@
 
 ;;; Commentary:
 
-;; Syntax highlighting support for "Modern C++" - until C++17 and
+;; Syntax highlighting support for "Modern C++" - until C++20 and
 ;; Technical Specification. This package aims to provide a simple
 ;; highlight of the C++ language without dependency.
 
@@ -85,7 +85,7 @@ http://en.cppreference.com/w/cpp/preprocessor"
 
 (defcustom modern-c++-keywords
   (eval-when-compile
-    (sort '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "break" "case" "catch" "class" "compl" "concept" "const" "const_cast" "constexpr" "continue" "decltype" "default" "delete" "do" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "final" "for" "friend" "goto" "if" "import" "inline" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "sizeof" "sizeof..." "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "try" "typedef" "typeid" "typename" "union" "using" "virtual" "volatile" "while" "xor" "xor_eq")
+    (sort '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "break" "case" "catch" "class" "compl" "concept" "const" "constexpr" "const_cast" "continue" "co_await" "co_return" "co_yield" "decltype" "default" "delete" "do" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "final" "for" "friend" "goto" "if" "import" "inline" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "sizeof" "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "try" "typedef" "typeid" "typename" "union" "using" "virtual" "volatile" "while" "xor" "xor_eq")
           'modern-c++-string-lenght>))
   "List of C++ keywords. See doc:
 http://en.cppreference.com/w/cpp/keyword"

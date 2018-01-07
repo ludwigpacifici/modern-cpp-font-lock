@@ -6,7 +6,7 @@
 
 [![Donate Paypal](https://img.shields.io/badge/Donate-Paypal-lightgrey.svg)](https://www.paypal.me/ludwigpacifici)
 
-Syntax highlighting support for "Modern C++" - until C++17 and Technical Specification. This package aims to provide a simple highlight of the C++ language without dependency.
+Syntax highlighting support for "Modern C++" - until C++20 and Technical Specification. This package aims to provide a simple highlight of the C++ language without dependency.
 
 It is recommended to use it in addition with the `c++-mode` major mode for extra highlighting (user defined types, functions, etc.) and indentation.
 
