@@ -1,5 +1,6 @@
 «t:bool»
 «t:char»
+«t:char8_t»
 «t:char16_t»
 «t:char32_t»
 «t:double»
@@ -49,6 +50,7 @@
 «p:__VA_AR_GS__»
 «p:__cplusplus»
 «p:__has_include»
+«p:__has_cpp_attribute»
 
 «k:alignas»
 «k:alignof»
@@ -69,6 +71,7 @@
 «k:concept»
 «k:const»
 «k:const_cast»
+«k:consteval»
 «k:constexpr»
 «k:continue»
 «k:decltype»
@@ -118,6 +121,8 @@
 «k:this»
 «k:thread_local»
 «k:throw»
+«k:audit»
+«k:axiom»
 «k:transaction_safe»
 «k:transaction_safe_dynamic»
 «k:try»
@@ -140,6 +145,12 @@
 [[«c:nodiscard»]]
 [[«c:noreturn»]]
 [[«c:optimize_for_synchronized»]]
+[[«c:likely»]]
+[[«c:unlikely»]]
+[[«c:no_unique_address»]]
+[[«c:expects»]]
+[[«c:ensures»]]
+[[«c:assert»]]
 
 «f:...»
 
@@ -301,6 +312,7 @@ aconcept
 aconst
 aconst_cast
 aconstexpr
+aconsteval
 acontinue
 adecltype
 adefault
@@ -349,6 +361,8 @@ atemplate
 athis
 athread_local
 athrow
+aaudit
+aaxiom
 atransaction_safe
 atransaction_safe_dynamic
 atry
@@ -382,6 +396,7 @@ concepta
 consta
 «k:const»_casta
 constexpra
+constevala
 continuea
 decltypea
 defaulta
@@ -430,6 +445,8 @@ templatea
 thisa
 thread_locala
 throwa
+audita
+axioma
 transaction_safea
 «k:transaction_safe»_dynamica
 trya
@@ -451,6 +468,13 @@ maybe_unused]]
 nodiscard]]
 noreturn]]
 optimize_«k:for»_«k:synchronized»]]
+likely]]
+unlikely]]
+no_unique_address]]
+expects]]
+ensures]]
+assert]]
+
 [[carries_dependency
 [[deprecated
 [[fallthrough
@@ -458,6 +482,12 @@ optimize_«k:for»_«k:synchronized»]]
 [[nodiscard
 [[noreturn
 [[optimize_«k:for»_«k:synchronized»
+[[likely
+[[unlikely
+[[no_unique_address
+[[expects
+[[ensures
+[[assert
 
 08
 09

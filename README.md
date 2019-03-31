@@ -12,15 +12,11 @@ It is recommended to use it in addition with the `c++-mode` major mode for extra
 
 # Preview
 
-`modern-c++-font-lock-mode` is enabled:
+With `modern-c++-font-lock-mode`:
 
-<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/mc%2B%2Bfl-on.png" width="640" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/mc%2B%2Bfl-on.png" /></p>
 
-`modern-c++-font-lock-mode` is disabled:
-
-<p align="center"><img src="https://raw.githubusercontent.com/ludwigpacifici/modern-cpp-font-lock/master/img/mc%2B%2Bfl-off.png" width="640" /></p>
-
-Using `GNU Emacs 24.5.1` and `CC Mode version 5.32.5`.
+Using `GNU Emacs 27.0.50` and `CC Mode version 5.33.2`.
 
 # Installation
 
@@ -106,6 +102,8 @@ The Wiki is available: https://github.com/ludwigpacifici/modern-cpp-font-lock/wi
 Font-lock keywords are tested with the [faceup](https://github.com/Lindydancer/faceup) package of [Anders Lindgren](https://github.com/Lindydancer).
 
 # Feedback
+
+If you find a bug, please check if you can reproduce with `c++-mode` only. If it is the case, send your bug upstream to [CC Mode](http://cc-mode.sourceforge.net/)
 
 Do not hesitate to ask questions or share suggestions.
 
