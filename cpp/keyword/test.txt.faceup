@@ -21,6 +21,7 @@
 «k:const»
 «k:const_cast»
 «k:constexpr»
+«k:consteval»
 «k:continue»
 «k:decltype»
 «k:default»
@@ -69,6 +70,8 @@
 «k:this»
 «k:thread_local»
 «k:throw»
+«k:audit»
+«k:axiom»
 «k:transaction_safe»
 «k:transaction_safe_dynamic»
 «k:try»

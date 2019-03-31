@@ -21,6 +21,7 @@ concept
 const
 const_cast
 constexpr
+consteval
 continue
 decltype
 default
@@ -69,6 +70,8 @@ template
 this
 thread_local
 throw
+audit
+axiom
 transaction_safe
 transaction_safe_dynamic
 try

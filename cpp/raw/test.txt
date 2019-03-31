@@ -1,5 +1,6 @@
 bool
 char
+char8_t
 char16_t
 char32_t
 double
@@ -49,6 +50,7 @@ __TIME__
 __VA_AR_GS__
 __cplusplus
 __has_include
+__has_cpp_attribute
 
 alignas
 alignof
@@ -69,6 +71,7 @@ compl
 concept
 const
 const_cast
+consteval
 constexpr
 continue
 decltype
@@ -118,6 +121,8 @@ template
 this
 thread_local
 throw
+audit
+axiom
 transaction_safe
 transaction_safe_dynamic
 try
@@ -140,6 +145,12 @@ xor_eq
 [[nodiscard]]
 [[noreturn]]
 [[optimize_for_synchronized]]
+[[likely]]
+[[unlikely]]
+[[no_unique_address]]
+[[expects]]
+[[ensures]]
+[[assert]]
 
 ...
 
@@ -301,6 +312,7 @@ aconcept
 aconst
 aconst_cast
 aconstexpr
+aconsteval
 acontinue
 adecltype
 adefault
@@ -349,6 +361,8 @@ atemplate
 athis
 athread_local
 athrow
+aaudit
+aaxiom
 atransaction_safe
 atransaction_safe_dynamic
 atry
@@ -382,6 +396,7 @@ concepta
 consta
 const_casta
 constexpra
+constevala
 continuea
 decltypea
 defaulta
@@ -430,6 +445,8 @@ templatea
 thisa
 thread_locala
 throwa
+audita
+axioma
 transaction_safea
 transaction_safe_dynamica
 trya
@@ -451,6 +468,13 @@ maybe_unused]]
 nodiscard]]
 noreturn]]
 optimize_for_synchronized]]
+likely]]
+unlikely]]
+no_unique_address]]
+expects]]
+ensures]]
+assert]]
+
 [[carries_dependency
 [[deprecated
 [[fallthrough
@@ -458,6 +482,12 @@ optimize_for_synchronized]]
 [[nodiscard
 [[noreturn
 [[optimize_for_synchronized
+[[likely
+[[unlikely
+[[no_unique_address
+[[expects
+[[ensures
+[[assert
 
 08
 09

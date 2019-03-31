@@ -64,7 +64,7 @@
 
 (defcustom modern-c++-types
   (eval-when-compile
-    (sort '("bool" "char" "char16_t" "char32_t" "double" "float" "int" "long" "short" "signed" "unsigned" "void" "wchar_t")
+    (sort '("bool" "char" "char8_t" "char16_t" "char32_t" "double" "float" "int" "long" "short" "signed" "unsigned" "void" "wchar_t")
           'modern-c++-string-lenght>))
   "List of C++ types. See doc:
 http://en.cppreference.com/w/cpp/language/types"
@@ -74,7 +74,7 @@ http://en.cppreference.com/w/cpp/language/types"
 
 (defcustom modern-c++-preprocessors
   (eval-when-compile
-    (sort '("#define" "#defined" "#elif" "#else" "#endif" "#error" "#if" "#ifdef" "#ifndef" "#include" "#line" "#pragma STDC CX_LIMITED_RANGE" "#pragma STDC FENV_ACCESS" "#pragma STDC FP_CONTRACT" "#pragma once" "#pragma pack" "#pragma" "#undef" "_Pragma" "__DATE__" "__FILE__" "__LINE__" "__STDCPP_STRICT_POINTER_SAFETY__" "__STDCPP_THREADS__" "__STDC_HOSTED__" "__STDC_ISO_10646__" "__STDC_MB_MIGHT_NEQ_WC__" "__STDC_VERSION__" "__STDC__" "__TIME__" "__VA_AR_GS__" "__cplusplus" "__has_include")
+    (sort '("#define" "#defined" "#elif" "#else" "#endif" "#error" "#if" "#ifdef" "#ifndef" "#include" "#line" "#pragma STDC CX_LIMITED_RANGE" "#pragma STDC FENV_ACCESS" "#pragma STDC FP_CONTRACT" "#pragma once" "#pragma pack" "#pragma" "#undef" "_Pragma" "__DATE__" "__FILE__" "__LINE__" "__STDCPP_STRICT_POINTER_SAFETY__" "__STDCPP_THREADS__" "__STDC_HOSTED__" "__STDC_ISO_10646__" "__STDC_MB_MIGHT_NEQ_WC__" "__STDC_VERSION__" "__STDC__" "__TIME__" "__VA_AR_GS__" "__cplusplus" "__has_include" "__has_cpp_attribute")
           'modern-c++-string-lenght>))
   "List of C++ preprocessor words. See doc:
 http://en.cppreference.com/w/cpp/keyword and
@@ -85,7 +85,7 @@ http://en.cppreference.com/w/cpp/preprocessor"
 
 (defcustom modern-c++-keywords
   (eval-when-compile
-    (sort '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "auto" "bitand" "bitor" "break" "case" "catch" "class" "compl" "concept" "const" "constexpr" "const_cast" "continue" "co_await" "co_return" "co_yield" "decltype" "default" "delete" "do" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "final" "for" "friend" "goto" "if" "import" "inline" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "sizeof" "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "try" "typedef" "typeid" "typename" "union" "using" "virtual" "volatile" "while" "xor" "xor_eq")
+    (sort '("alignas" "alignof" "and" "and_eq" "asm" "atomic_cancel" "atomic_commit" "atomic_noexcept" "audit" "auto" "axiom" "bitand" "bitor" "break" "case" "catch" "class" "compl" "concept" "const" "constexpr" "consteval" "const_cast" "continue" "co_await" "co_return" "co_yield" "decltype" "default" "delete" "do" "dynamic_cast" "else" "enum" "explicit" "export" "extern" "final" "for" "friend" "goto" "if" "import" "inline" "module" "mutable" "namespace" "new" "noexcept" "not" "not_eq" "operator" "or" "or_eq" "override" "private" "protected" "public" "register" "reinterpret_cast" "requires" "return" "sizeof" "static" "static_assert" "static_cast" "struct" "switch" "synchronized" "template" "this" "thread_local" "throw" "transaction_safe" "transaction_safe_dynamic" "try" "typedef" "typeid" "typename" "union" "using" "virtual" "volatile" "while" "xor" "xor_eq")
           'modern-c++-string-lenght>))
   "List of C++ keywords. See doc:
 http://en.cppreference.com/w/cpp/keyword"
@@ -95,7 +95,7 @@ http://en.cppreference.com/w/cpp/keyword"
 
 (defcustom modern-c++-attributes
   (eval-when-compile
-    (sort '("carries_dependency" "deprecated" "fallthrough" "maybe_unused" "nodiscard" "noreturn" "optimize_for_synchronized")
+    (sort '("carries_dependency" "deprecated" "fallthrough" "maybe_unused" "nodiscard" "noreturn" "optimize_for_synchronized" "likely" "unlikely" "no_unique_address" "expects" "ensures" "assert")
           'modern-c++-string-lenght>))
   "List of C++ attributes. See doc:
 http://en.cppreference.com/w/cpp/language/attributes"
