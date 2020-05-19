@@ -81,6 +81,20 @@ Set to `t` (default value) to enable the following options or otherwise to `nil`
  * `modern-c++-literal-null-pointer` - `nullptr`
  * `modern-c++-literal-string` - `R"xyz()")xyz"`, `L"hello\ngoodbye"`, `"abcd"`, [etc](http://en.cppreference.com/w/cpp/language/string_literal).
 
+Configure the following list to customize font locking for literal integers:
+
+ * `modern-c++-literal-binary-prefix-face`
+ * `modern-c++-literal-binary-infix-face`
+ * `modern-c++-literal-binary-suffix-face`
+ * `modern-c++-literal-octal-prefix-face`
+ * `modern-c++-literal-octal-infix-face`
+ * `modern-c++-literal-octal-suffix-face`
+ * `modern-c++-literal-hex-prefix-face`
+ * `modern-c++-literal-hex-infix-face`
+ * `modern-c++-literal-hex-suffix-face`
+ * `modern-c++-literal-dec-infix-face`
+ * `modern-c++-literal-dec-suffix-face`
+
 ## C++ standard library
 
 Set to `t` (default value) to enable the following font lock options. Otherwise use `nil`:

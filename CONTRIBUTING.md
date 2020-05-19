@@ -21,3 +21,4 @@ If you have some code which you would like to be merged, then open a [pull reque
 Names below are sorted alphabetically.
 
 - Mola-T - <Mola@molamola.xyz>
+- Zhiwei Chen - <condy0919@gmail.com>
