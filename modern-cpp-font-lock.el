@@ -163,6 +163,61 @@ http://en.cppreference.com/w/cpp/language/integer_literal"
   :type 'boolean
   :group 'modern-c++-font-lock)
 
+(defcustom modern-c++-literal-binary-prefix-face 'font-lock-keyword-face
+  "Face for displaying binary literal integer prefix."
+  :type 'symbol
+  :group 'modern-c++-font-lock)
+
+(defcustom modern-c++-literal-binary-infix-face 'font-lock-constant-face
+  "Face for displaying binary literal integer infix."
+  :type 'symbol
+  :group 'modern-c++-font-lock)
+
+(defcustom modern-c++-literal-binary-suffix-face 'font-lock-keyword-face
+  "Face for displaying binary literal integer suffix."
+  :type 'symbol
+  :group 'modern-c++-font-lock)
+
+(defcustom modern-c++-literal-octal-prefix-face 'font-lock-keyword-face
+  "Face for displaying octal literal integer prefix."
+  :type 'symbol
+  :group 'modern-c++-font-lock)
+
+(defcustom modern-c++-literal-octal-infix-face 'font-lock-constant-face
+  "Face for displaying octal literal integer infix."
+  :type 'symbol
+  :group 'modern-c++-font-lock)
+
+(defcustom modern-c++-literal-octal-suffix-face 'font-lock-keyword-face
+  "Face for displaying octal literal integer suffix."
+  :type 'symbol
+  :group 'modern-c++-font-lock)
+
+(defcustom modern-c++-literal-hex-prefix-face 'font-lock-keyword-face
+  "Face for displaying hexadecimal literal integer prefix."
+  :type 'symbol
+  :group 'modern-c++-font-lock)
+
+(defcustom modern-c++-literal-hex-infix-face 'font-lock-constant-face
+  "Face for displaying hexadecimal literal integer infix."
+  :type 'symbol
+  :group 'modern-c++-font-lock)
+
+(defcustom modern-c++-literal-hex-suffix-face 'font-lock-keyword-face
+  "Face for displaying hexadecimal literal integer suffix."
+  :type 'symbol
+  :group 'modern-c++-font-lock)
+
+(defcustom modern-c++-literal-dec-infix-face 'font-lock-constant-face
+  "Face for displaying decimal literal integer infix."
+  :type 'symbol
+  :group 'modern-c++-font-lock)
+
+(defcustom modern-c++-literal-dec-suffix-face 'font-lock-keyword-face
+  "Face for displaying decimal literal integer suffix."
+  :type 'symbol
+  :group 'modern-c++-font-lock)
+
 (defvar modern-c++-font-lock-literal-integer nil)
 
 (defun modern-c++-generate-font-lock-literal-integer ()
@@ -177,17 +232,17 @@ http://en.cppreference.com/w/cpp/language/integer_literal"
             `(
               ;; Note: order below matters, because once colored, that part
               ;; won't change. In general, longer words first
-              (,literal-binary-regexp (1 font-lock-keyword-face)
-                                      (2 font-lock-constant-face)
-                                      (3 font-lock-keyword-face))
-              (,literal-octal-regexp (1 font-lock-keyword-face)
-                                     (2 font-lock-constant-face)
-                                     (3 font-lock-keyword-face))
-              (,literal-hex-regexp (1 font-lock-keyword-face)
-                                   (2 font-lock-constant-face)
-                                   (3 font-lock-keyword-face))
-              (,literal-dec-regexp (1 font-lock-constant-face)
-                                   (2 font-lock-keyword-face)))))))
+              (,literal-binary-regexp (1 modern-c++-literal-binary-prefix-face)
+                                      (2 modern-c++-literal-binary-infix-face)
+                                      (3 modern-c++-literal-binary-suffix-face))
+              (,literal-octal-regexp (1 modern-c++-literal-octal-prefix-face)
+                                     (2 modern-c++-literal-octal-infix-face)
+                                     (3 modern-c++-literal-octal-suffix-face))
+              (,literal-hex-regexp (1 modern-c++-literal-hex-prefix-face)
+                                   (2 modern-c++-literal-hex-infix-face)
+                                   (3 modern-c++-literal-hex-suffix-face))
+              (,literal-dec-regexp (1 modern-c++-literal-dec-infix-face)
+                                   (2 modern-c++-literal-dec-suffix-face)))))))
 
 (defcustom modern-c++-literal-null-pointer
   t
