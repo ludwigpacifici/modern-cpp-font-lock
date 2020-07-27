@@ -120,7 +120,7 @@ http://en.cppreference.com/w/cpp/language/operators"
 
 (defun modern-c++-generate-font-lock-keywords ()
   (let ((types-regexp (regexp-opt modern-c++-types 'symbols))
-        (preprocessors-regexp (regexp-opt modern-c++-preprocessors))
+        (preprocessors-regexp (regexp-opt modern-c++-preprocessors 'words))
         (keywords-regexp (regexp-opt modern-c++-keywords 'words))
         (attributes-regexp
          (concat "\\[\\[\\(" (regexp-opt modern-c++-attributes 'words) "\\).*\\]\\]"))
