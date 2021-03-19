@@ -47,7 +47,8 @@
 «p:__STDC_VERSION__»
 «p:__STDC__»
 «p:__TIME__»
-«p:__VA_AR_GS__»
+«p:__VA_ARGS__»
+«p:__VA_OPT__»
 «p:__cplusplus»
 «p:__has_include»
 «p:__has_cpp_attribute»
@@ -73,6 +74,7 @@
 «k:const_cast»
 «k:consteval»
 «k:constexpr»
+«k:constinit»
 «k:continue»
 «k:decltype»
 «k:default»
@@ -255,7 +257,8 @@ a«p:__STDC_MB_MIGHT_NEQ_WC__»
 a«p:__STDC_VERSION__»
 a«p:__STDC__»
 a«p:__TIME__»
-a«p:__VA_AR_GS__»
+a«p:__VA_ARGS__»
+a«p:__VA_OPT__»
 a«p:__cplusplus»
 a«p:__has_include»
 «p:#define»a
@@ -288,7 +291,7 @@ a«p:__has_include»
 «p:__STDC_VERSION__»a
 «p:__STDC__»a
 «p:__TIME__»a
-«p:__VA_AR_GS__»a
+«p:__VA_ARGS__»a
 «p:__cplusplus»a
 «p:__has_include»a
 
@@ -313,6 +316,7 @@ aconst
 aconst_cast
 aconstexpr
 aconsteval
+aconstinit
 acontinue
 adecltype
 adefault
