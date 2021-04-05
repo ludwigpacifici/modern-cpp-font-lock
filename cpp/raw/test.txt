@@ -47,7 +47,8 @@ __STDC_MB_MIGHT_NEQ_WC__
 __STDC_VERSION__
 __STDC__
 __TIME__
-__VA_AR_GS__
+__VA_ARGS__
+__VA_OPT__
 __cplusplus
 __has_include
 __has_cpp_attribute
@@ -73,6 +74,7 @@ const
 const_cast
 consteval
 constexpr
+constinit
 continue
 decltype
 default
@@ -255,7 +257,8 @@ a__STDC_MB_MIGHT_NEQ_WC__
 a__STDC_VERSION__
 a__STDC__
 a__TIME__
-a__VA_AR_GS__
+a__VA_ARGS__
+a__VA_OPT__
 a__cplusplus
 a__has_include
 #definea
@@ -288,7 +291,7 @@ __STDC_MB_MIGHT_NEQ_WC__a
 __STDC_VERSION__a
 __STDC__a
 __TIME__a
-__VA_AR_GS__a
+__VA_ARGS__a
 __cplusplusa
 __has_includea
 
@@ -313,6 +316,7 @@ aconst
 aconst_cast
 aconstexpr
 aconsteval
+aconstinit
 acontinue
 adecltype
 adefault
