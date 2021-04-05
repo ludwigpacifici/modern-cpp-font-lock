@@ -15,6 +15,10 @@ template <typename T> struct Foo {
 struct A final : Foo {
   A() = default;
   [[noreturn]] virtual void foo() override;
+  bool bar() {
+    return is__FILE__;
+  }
+  bool is__FILE__;
 };
 
 template <typename T> concept bool EqualityComparable = requires(T a, T b) {

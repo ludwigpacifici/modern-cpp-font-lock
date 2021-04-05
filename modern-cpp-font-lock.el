@@ -54,13 +54,16 @@
 
 ;;; Code:
 
+(require 'cl-lib)
+
 (defgroup modern-c++-font-lock nil
   "Provides font-locking as a Minor Mode for Modern C++"
   :group 'faces)
 
 (eval-and-compile
   (defun modern-c++-string-lenght< (a b) (< (length a) (length b)))
-  (defun modern-c++-string-lenght> (a b) (not (modern-c++-string-lenght< a b))))
+  (defun modern-c++-string-lenght> (a b) (not (modern-c++-string-lenght< a b)))
+  (defun modern-c++-string-sharp-prefixed (s) (string-prefix-p "#" s)))
 
 (defcustom modern-c++-types
   (eval-when-compile
@@ -120,7 +123,9 @@ http://en.cppreference.com/w/cpp/language/operators"
 
 (defun modern-c++-generate-font-lock-keywords ()
   (let ((types-regexp (regexp-opt modern-c++-types 'symbols))
-        (preprocessors-regexp (regexp-opt modern-c++-preprocessors))
+        (preprocessors-regexp
+         (concat "\\(" (regexp-opt (cl-remove-if #'modern-c++-string-sharp-prefixed modern-c++-preprocessors) 'symbols) "\\)\\|"
+                 "\\(" (regexp-opt (cl-remove-if-not #'modern-c++-string-sharp-prefixed modern-c++-preprocessors)) "\\)"))
         (keywords-regexp (regexp-opt modern-c++-keywords 'words))
         (attributes-regexp
          (concat "\\[\\[\\(" (regexp-opt modern-c++-attributes 'words) "\\).*\\]\\]"))

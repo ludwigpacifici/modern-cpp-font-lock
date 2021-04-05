@@ -15,6 +15,10 @@
 «k:struct» A «k:final» : Foo {
   A() = «k:default»;
   [[«c:noreturn»]] «k:virtual» «t:void» foo() «k:override»;
+  «t:bool» bar() {
+    «k:return» is__FILE__;
+  }
+  «t:bool» is__FILE__;
 };
 
 «k:template» <«k:typename» T> «k:concept» «t:bool» EqualityComparable = «k:requires»(T a, T b) {
